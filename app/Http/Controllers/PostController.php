@@ -48,4 +48,10 @@ $search=$request->get('search');
      DB::delete('delete from posts where id = ?',[$id]);
       return redirect()->back()->with('success', 'Link Deleted');
      }
+
+
+     public function myprofile() {
+         $user=Auth::user();
+     return view('myprofile',compact('user'));
+     }
 }

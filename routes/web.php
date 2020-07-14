@@ -19,6 +19,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
+Route::get('/myprofile', 'Postcontroller@myprofile')->name('myprofile');
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/addnewpost', 'Postcontroller@createpost')->name('add.newpost');
 Route::get('/showposts', 'Postcontroller@showpost')->name('showposts');

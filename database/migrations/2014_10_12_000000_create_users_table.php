@@ -23,7 +23,8 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
-        DB::statement("ALTER TABLE users AUTO_INCREMENT = '1524';");
+          DB::table('users')->insert(['id' => 13999, 'name' => 'whatever']);
+          DB::table('users')->where('id', 13999)->delete();
     }
 
     /**

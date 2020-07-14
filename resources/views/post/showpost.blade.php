@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <div class="card  w-275">
+            <div class="card ">
                 <div class="card-header">{{ __('YOUR LINKS') }}</div>
 
                 <div class="card-body">
@@ -58,7 +58,8 @@
 
 @if ($posts->count()>0)
 @foreach ($posts as $post)
-<div class="card">
+<div class="card-deck">
+  <div class="card">
     <div class="card-body">
         <div class="card-header">
             <h2>{{$post->title}}</h2>
@@ -76,6 +77,7 @@
                                 </button>
                     </form>
     </div>
+ </div>
 </div>
 <br>
 @endforeach 
