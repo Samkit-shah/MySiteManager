@@ -14,7 +14,7 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id',7485);
              $table->BigInteger('contactno');
             $table->string('name');
             $table->string('email')->unique();
@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
-         DB::update("ALTER TABLE tests AUTO_INCREMENT = 2181;");
+         
     }
 
     /**
