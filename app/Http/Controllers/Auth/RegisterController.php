@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/showposts';
+    // protected $redirectTo = '/showposts';
 
     /**
      * Create a new controller instance.
@@ -72,5 +72,8 @@ class RegisterController extends Controller
             'contactno' => $data['contactno'],
             'password' => Hash::make($data['password']),
         ]);
+         $user->sendEmailVerificationNotification();
+
+         return $user;
     }
 }

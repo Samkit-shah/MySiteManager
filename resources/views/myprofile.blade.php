@@ -18,10 +18,17 @@
   <li class="list-group-item">NAME :{{$user->name}}</li>
   <li class="list-group-item">Email id :{{$user->email}}</li>
   <li class="list-group-item">Contact Number :{{$user->contactno}}</li>
- 
+  
+<li class="list-group-item">Last Login On:  {{$user->last_sign_in_at->format('d/m/Y')}}   i.e {{$user->last_sign_in_at->DiffForHumans()}}</li>   
+ <li class="list-group-item">To Reset Your Password :  @if (Route::has('password.request'))
+                                    <a class="btn btn-link" href="{{ route('password.request') }}" style="padding: 0px">
+                                        {{ __('Click here') }}
+                                    </a>
+                                @endif</li>  
+                       
   
 
-  
+
 </ul>
                     </div>
 
@@ -43,8 +50,10 @@
                                     {{ __('Show My Links') }}
                                 </button>
                             </div>
+                            
                         </div>
                         </form>
+                         
                 </div>
               
 

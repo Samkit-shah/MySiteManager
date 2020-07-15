@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcomepage');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 
 Route::get('/myprofile', 'Postcontroller@myprofile')->name('myprofile');
@@ -29,3 +29,6 @@ Route::get('/search', 'Postcontroller@search')->name('search');
 
 Route::get('delete-records','Postcontroller@index');
 Route::get('delete/{id}','Postcontroller@deletelink')->name('deletelink');
+
+
+Route::get('sharepost','Sharelink@mailsend')->name('sharepost');

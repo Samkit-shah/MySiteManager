@@ -25,6 +25,11 @@
                                     {{ __('Add New links') }}
                                 </button>
                     </form>
+                     <form action="{{ route('sharepost', [$user]) }}" method="get">
+                                <button type="submit" class="btn btn-primary" >
+                                    {{ __('Send All The Links to My Mail') }}
+                                </button>
+            </form>
                 </div>
 
  <div class="col-md-14">
@@ -54,7 +59,14 @@
     </script>
 @endif
 
-
+<br>
+ <script>
+    var msg = '{{Session::get('mailsent')}}';
+    var exist = '{{Session::has('mailsent')}}';
+    if(exist){
+      alert(msg);
+    }
+</script>
 
 @if ($posts->count()>0)
 @foreach ($posts as $post)
@@ -69,13 +81,14 @@
         <a style="font-size: 20px">Site Link </a>
         <a href="{{$post->sitelink}}">{{$post->sitelink}}</a>
         <br/>
-         <a style="font-size: 20px">Posted On </a>{{$post->created_at}}
+         <a style="font-size: 20px">Posted On </a>{{$post->created_at->format('d/m/Y')}}
         <br />
             <form action="{{ route('deletelink', [$post->id]) }}" method="get">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" >
                                     {{ __('Delete this Link') }}
                                 </button>
-                    </form>
+            </form>
+            
     </div>
  </div>
 </div>
@@ -92,3 +105,4 @@
     </div>
 </div>
 @endsection
+

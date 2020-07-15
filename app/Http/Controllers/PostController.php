@@ -8,10 +8,17 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 class PostController extends Controller
 {
+   public function __construct()
+   {
+   $this->middleware(['auth','verified']);
+   }
 
-   public function createpost(){
-
-
+   public function createpost(Request $request){
+ $this->validate($request,[
+ 'title'=>['required',],
+ 'sitelink'=>['required',],
+ ]);
+// $this->validate()
  
 $user_id = Auth::id();
    $post = new Post();
