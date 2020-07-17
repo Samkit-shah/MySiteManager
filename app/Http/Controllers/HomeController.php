@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Auth;
 use Illuminate\Http\Request;
 use App\Post;
+
 class HomeController extends Controller
 {
     /**
@@ -13,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth','verified']);
+        $this->middleware(['auth', 'verified']);
     }
 
     /**
@@ -23,10 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-          $user=Auth::user();
-          // $posts=Post::all();
-          $posts=Post::where('user_id',$user->id)->get();
-          return view('home',compact('user','posts'));
-     
+        $user = Auth::user();
+        // $posts=Post::all();
+        $posts = Post::where('user_id', $user->id)->get();
+        return view('home', compact('user', 'posts'));
+
     }
 }

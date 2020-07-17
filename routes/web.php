@@ -31,4 +31,7 @@ Route::get('delete-records','Postcontroller@index');
 Route::get('delete/{id}','Postcontroller@deletelink')->name('deletelink');
 
 
-Route::get('sharepost','Sharelink@mailsend')->name('sharepost');
+Route::get('/sharepost','Sharelink@mailsend')->name('sharepost');
+
+
+Route::get('/downloadPDF/{id}','Postcontroller@downloadPDF')->name('downloadpdf');
