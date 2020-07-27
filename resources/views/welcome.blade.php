@@ -89,7 +89,7 @@
                     <ul class="list-group">
                         <li>Register yourself and Login</li>
                         <li>Add the links that you wish to save.</li>
-                        <li>And you are done your links will be saved</li>
+                        <li>And your links will be saved</li>
                         <li>Search it whenever you wish to browse</li>
 
                     </ul>
