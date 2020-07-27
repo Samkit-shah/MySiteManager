@@ -40,7 +40,7 @@ return [
             'port' => env('MAIL_PORT', 465),
             'encryption' => env('MAIL_ENCRYPTION', 'ssl'),
             'username' => env('infomysitemanager@gmail.com'),
-            'password' => env('deqgcaxthvqvzimi'),
+            'password' => env('kzlqelxvcbxwrbvl'),
             'timeout' => null,
             'auth_mode' => null,
         ],
