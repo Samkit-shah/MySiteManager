@@ -74,7 +74,7 @@
     <body onload="typeWriter()">
         <div class="fixed-top" style="background-color: #424b50;text-align:center">Please Note: Sending Emails
             Functionallity is turned
-            off. For Queries <a href="mailto:samkitbhai@gmail.com"
+            off. For Queries <a href="mailto:infomysitemanager@gmail.com"
                 style="color:rgb(228, 212, 250);text-decoration:underline">Contact
                 Us</a></div>
         <div class="flex-center position-ref full-height">
