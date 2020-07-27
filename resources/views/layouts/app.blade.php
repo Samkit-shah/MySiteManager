@@ -22,7 +22,8 @@
     </head>
     <body style=" background-color: rgba(55, 51, 88, 0.5);">
         <div id="app">
-            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm"
+                style=" background-color: rgba(55, 51, 88, 0.678);">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
                         SITE MANAGER
