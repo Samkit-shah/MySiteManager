@@ -20,7 +20,7 @@
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
 
     </head>
-    <body>
+    <body style=" background-color: rgba(55, 51, 88, 0.5);">
         <div id="app">
             <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
                 <div class="container">
