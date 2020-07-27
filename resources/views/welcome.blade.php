@@ -1,93 +1,113 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+            integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+        </script>
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
-    <!-- Styles -->
-    <style>
-        html, body {
-            background-color: #fff;
-            color: #636b6f;
-            font-family: 'Nunito', sans-serif;
-            font-weight: 200;
-            height: 100vh;
-            margin: 0;
-        }
+        <!-- Styles -->
+        <style>
+            html,
+            body {
+                background-color: rgba(55, 51, 88, 0.5);
+                color: #ffffff;
 
-        .full-height {
-            height: 100vh;
-        }
+                font-weight: 200;
+                height: 100vh;
+                margin: 0;
+            }
 
-        .flex-center {
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
+            .full-height {
+                height: 100vh;
+            }
 
-        .position-ref {
-            position: relative;
-        }
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
 
-        .top-right {
-            position: absolute;
-            right: 10px;
-            top: 18px;
-        }
-
-        .content {
-            padding: 5px
-        }
-
-
-        .links > a {
-            color: #636b6f;
-            padding: 0 25px;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: .1rem;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
+            .position-ref {
+                position: relative;
+            }
 
 
-    </style>
-    <title>SITEMANAGEER</title>
-</head>
-<body>
-<div class="flex-center position-ref full-height">
-    @if (Route::has('login'))
-        <div class="top-right links">
-            @auth
-                <a href="{{ url('/home') }}">Home</a>
-            @else
-                <a href="{{ route('login') }}">Login</a>
 
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}">Register</a>
+
+            .links>a {
+                color: #eff4f7;
+                padding: 0 25px;
+                font-size: 13px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+
+        </style>
+        <title>SITEMANAGEER</title>
+    </head>
+    <body onload="typeWriter()">
+        <div class="flex-center position-ref full-height">
+
+
+            <div class="container" style="padding-left: 15%">
+                <div>
+                    <h1 id="name" style="padding:0px;margin:0px;font-family:Comic Sans MS, cursive, sans-serif">
+                    </h1>
+                    <p style="font-size: 25px"> Save your links and Get it Whenever you wish to browse</p>
+                    <ul class="list-group">
+                        <li>Register yourself and Login</li>
+                        <li>Add the links that you wish to save.</li>
+                        <li>And you are done your links will be saved</li>
+                        <li>Search it whenever you wish to browse</li>
+
+                    </ul>
+                </div>
+                @if(Route::has('login'))
+                    <div class="top-right links">
+                        @auth
+                            <a class="btn btn-outline-dark" href="{{ url('/home') }}">Home</a>
+                        @else
+                            <a class="btn btn-outline-dark" href="{{ route('login') }}">Login</a>
+
+                            @if(Route::has('register'))
+                                <a class="btn btn-outline-dark"
+                                    href="{{ route('register') }}">Register</a>
+                            @endif
+                        @endauth
+                    </div>
                 @endif
-            @endauth
+
+            </div>
         </div>
-    @endif
+        <script>
+            var i = 0;
+            var txt = 'MY SITE MANAGER';
+            var speed = 80;
 
-    <div class="content">
+            function typeWriter() {
+                if (i < txt.length) {
+                    document.getElementById("name").innerHTML += txt.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, speed);
+                }
+            }
 
-        <p style="font-size: 55px;padding:0px;margin:0px;"> MY SITE MANAGER</p>
-        <p style="font-size: 35px"> Save your links and Get it Whenever you wish to browse</p>
-        <ul class="list-unstyled">
-            <li>Register yourself and Login</li>
-            <li>Add the links that you wish to save.</li>
-            <li>And you are done your links will be saved</li>
-            <li>Search it whenever you wish to browse</li>
-
-        </ul>
-
-
-    </div>
-</div>
-</body>
+        </script>
+    </body>
 </html>

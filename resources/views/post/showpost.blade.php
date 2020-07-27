@@ -35,7 +35,7 @@
                         <form action="{{ route('downloadpdf', [$user->id]) }}"
                             method="get">
                             <button type="submit" class="btn btn-primary">
-                                {{ __('Download As Pdf') }}(not working on heroku)
+                                {{ __('Download As Pdf') }}
                             </button>
                         </form>
                     </div>
