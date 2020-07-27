@@ -19,10 +19,10 @@
                             <li class="list-group-item">Email id :{{ $user->email }}</li>
                             <li class="list-group-item">Contact Number :{{ $user->contactno }}</li>
 
-                            <li class="list-group-item disabled">Last Login On:
+                            <li class="list-group-item ">Last Login On:
                                 {{ $user->last_sign_in_at->format('d/m/Y') }}
                                 i.e {{ $user->last_sign_in_at->DiffForHumans() }}</li>
-                            <li class="list-group-item">To Reset Your Password (not working on heroku)
+                            <li class="list-group-item" disabled>To Reset Your Password (not working on heroku)
                                 : @if (Route::has('password.request'))
                                 <a class="btn btn-link" href="{{ route('password.request') }}"
                                     style="padding: 0px">
