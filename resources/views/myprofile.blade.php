@@ -65,7 +65,7 @@
 
                 </div>
 
-                {{-- <div class="alert alert-success" style="margin-bottom: 0">
+                <div class="alert alert-success" style="margin-bottom: 0">
 
                     <form action="/submitfeedback" method="GET">
 
@@ -74,20 +74,20 @@
                         <div class="input-group">
                             <label for="sitelink"
                                 class="col-md-2 col-form-label text-md-right">{{ __('Feedback/Comments') }}</label>
-                <input type="text" name="feedback" class="form-control "
-                    placeholder="Please Share Your Valuable Feedback">
-                <span class="input-group-prepend">
-                    <button type="submit" class="btn btn-primary ">{{ __('Submit') }}
-                    </button>
-                </span>
+                            <input type="text" name="feedback" class="form-control "
+                                placeholder="Please Share Your Valuable Feedback">
+                            <span class="input-group-prepend">
+                                <button type="submit" class="btn btn-primary ">{{ __('Submit') }}
+                                </button>
+                            </span>
+
+                        </div>
+                    </form>
+                </div>
 
             </div>
-            </form>
-        </div> --}}
-
+        </div>
     </div>
-</div>
-</div>
 </div>
 </div>
 @endsection
