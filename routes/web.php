@@ -20,18 +20,18 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 
-Route::get('/myprofile', 'Postcontroller@myprofile')->name('myprofile');
+Route::get('/myprofile', 'PostController@myprofile')->name('myprofile');
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/addnewpost', 'Postcontroller@createpost')->name('add.newpost');
-Route::get('/showposts', 'Postcontroller@showpost')->name('showposts');
-Route::get('/search', 'Postcontroller@search')->name('search');
+Route::post('/addnewpost', 'PostController@createpost')->name('add.newpost');
+Route::get('/showposts', 'PostController@showpost')->name('showposts');
+Route::get('/search', 'PostController@search')->name('search');
 
-Route::get('delete-records','Postcontroller@index');
-Route::get('delete/{id}','Postcontroller@deletelink')->name('deletelink');
+Route::get('delete-records','PostController@index');
+Route::get('delete/{id}','PostController@deletelink')->name('deletelink');
 
 
 Route::get('/sharepost','Sharelink@mailsend')->name('sharepost');
 
 
-Route::get('/downloadPDF/{id}','Postcontroller@downloadPDF')->name('downloadpdf');
+Route::get('/downloadPDF/{id}','PostController@downloadPDF')->name('downloadpdf');
