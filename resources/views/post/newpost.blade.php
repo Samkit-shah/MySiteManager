@@ -39,7 +39,7 @@
                 class="col-md-4 col-form-label text-md-right">{{ __('Sitelink') }}</label>
 
             <div class="col-md-6">
-                <input id="sitelink" type="url" placeholder="https://example.com" value="https://"
+                <input id="sitelink" type="url" placeholder="https://yoursitetosame.com"
                     class="form-control @error('sitelink') is-invalid @enderror" name="sitelink" required
                     autocomplete="current-sitelink">
 
