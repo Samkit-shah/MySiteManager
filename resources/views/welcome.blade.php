@@ -75,7 +75,7 @@
         <div class="fixed-top" style="background-color: #424b50;text-align:center">Please Note: Sending Emails
             Functionallity is turned
             off. For Queries <a
-                href="mailto:infomysitemanager@gmail.com?subject=Query%20regarding%20mysitemanager&body=I%20visited%20your%20website$20and%20I%20have%20few%queries:"
+                href="mailto:infomysitemanager@gmail.com?subject=Query%20regarding%20mysitemanager&body=I%20visited%20your%20website%20and%20I%20have%20few%20queries:"
                 style="color:rgb(228, 212, 250);text-decoration:underline">Contact
                 Us</a></div>
         <div class="flex-center position-ref full-height">
