@@ -28,7 +28,8 @@
                         <br>
                         <form action="{{ route('sharepost', [$user]) }}" method="get">
                             <button type="submit" class="btn btn-primary">
-                                {{ __('Send All The Links to My Mail') }}
+                                {{ __('Send All The Links to My Mail') }} (not working on
+                                heroku)
                             </button>
                         </form>
                         <br>
