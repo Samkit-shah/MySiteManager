@@ -121,7 +121,7 @@
         <script>
             var i = 0;
             var txt = 'MY SITE MANAGER';
-            var speed = 80;
+            var speed = 100;
 
             function typeWriter() {
                 if (i < txt.length) {
