@@ -22,11 +22,10 @@
     </head>
     <body style=" background-color: rgba(55, 51, 88, 0.5);">
         <div id="app">
-            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm"
-                style=" background-color: rgba(55, 51, 88, 0.678);">
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        SITE MANAGER
+                        MY SITE MANAGER
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
