@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcomepage');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 
 Route::get('/myprofile', 'PostController@myprofile')->name('myprofile');

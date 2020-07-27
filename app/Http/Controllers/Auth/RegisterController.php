@@ -81,7 +81,7 @@ class RegisterController extends Controller
 //        $name = $user;
 //        Mail::to($mailto)->send(new Welcomemail($name));
 
-        // $user->sendEmailVerificationNotification();
+        $user->sendEmailVerificationNotification();
 
 
 
