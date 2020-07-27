@@ -72,10 +72,14 @@
         <title>SITEMANAGEER</title>
     </head>
     <body onload="typeWriter()">
+        <div class="fixed-top" style="background-color: #424b50;text-align:center">Please Note: Sending Emails
+            Functionallity is turned
+            off. For Queries <a href="mailto:samkitbhai@gmail.com" style="color:black">Contact Us</a></div>
         <div class="flex-center position-ref full-height">
 
 
             <div class="container" style="padding-left: 15%">
+
                 <div>
                     <h1 id="name" style="padding:0px;margin:0px;font-family:Comic Sans MS, cursive, sans-serif">
                     </h1>
@@ -91,9 +95,9 @@
                 @if(Route::has('login'))
                     <div class="top-right links">
                         @auth
-                            <a class="btn btn-outline-dark" href="{{ url('/home') }}">Home</a>
+                            <a class="btn btn-outline-dark " href="{{ url('/home') }}">Home</a>
                         @else
-                            <a class="btn btn-outline-dark" href="{{ route('login') }}">Login</a>
+                            <a class="btn btn-outline-dark " href="{{ route('login') }}">Login</a>
 
                             @if(Route::has('register'))
                                 <a class="btn btn-outline-dark"
