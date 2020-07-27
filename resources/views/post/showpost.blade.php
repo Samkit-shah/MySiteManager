@@ -82,7 +82,7 @@
                                         <a style="font-size: 20px">Description </a>{{ $post->description }}
                                         <br />
                                         <a style="font-size: 20px">Site Link </a>
-                                        <a href="{{ $post->sitelink }}">{{ $post->sitelink }}</a>
+                                        <a href="{{ $post->sitelink }}" target="_blank">{{ $post->sitelink }}</a>
                                         <br />
                                         <a style="font-size: 20px">Posted
                                             On </a>{{ $post->created_at->format('d/m/Y') }}
