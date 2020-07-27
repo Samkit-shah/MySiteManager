@@ -107,7 +107,8 @@
 
         </div>
         <div class="footer">
-            <p>Developed By <a href="https://www.linkedin.com/in/samkithshah" target="_blank">Samkit Shah</a></p>
+            <p>Developed By <a href="https://www.linkedin.com/in/samkithshah" target="_blank"
+                    style="color: black;font-weight:550">Samkit Shah</a></p>
         </div>
 
         <script>
