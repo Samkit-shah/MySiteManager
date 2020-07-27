@@ -10,15 +10,21 @@
         <title>{{ config('app.name', 'MYSITEMANAGER') }}</title>
 
         <!-- Scripts -->
-        <script src="{{ secure_asset('js/app.js') }}" defer></script>
+        <script src="{{ asset('js/app.js') }}" defer></script>
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
         <!-- Styles -->
-        <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <style>
+            nav div a.dropdown-item:hover {
 
+                background-color: rgb(46, 42, 42)
+            }
+
+        </style>
     </head>
     <body style=" background-color: rgba(55, 51, 88, 0.5);">
         <div id="app">
@@ -65,8 +71,10 @@
                                         {{ Auth::user()->name }} <span class="caret"></span>
                                     </a>
 
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                    <div class="dropdown-menu dropdown-menu-right navbar-dark bg-dark "
+                                        aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                            style="color: white" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
                                         </a>

@@ -12,7 +12,14 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    @if(Session::has('success'))
+                        <div class="alert alert-success fade-mail-message">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            {!! Session::get('success') !!}
 
+                        </div>
+
+                    @endif
                     <div class="card-body">
                         <ul class="list-group">
                             <li class="list-group-item">NAME :{{ $user->name }}</li>
@@ -58,10 +65,29 @@
 
                 </div>
 
+                {{-- <div class="alert alert-success" style="margin-bottom: 0">
+
+                    <form action="/submitfeedback" method="GET">
+
+
+
+                        <div class="input-group">
+                            <label for="sitelink"
+                                class="col-md-2 col-form-label text-md-right">{{ __('Feedback/Comments') }}</label>
+                <input type="text" name="feedback" class="form-control "
+                    placeholder="Please Share Your Valuable Feedback">
+                <span class="input-group-prepend">
+                    <button type="submit" class="btn btn-primary ">{{ __('Submit') }}
+                    </button>
+                </span>
 
             </div>
-        </div>
+            </form>
+        </div> --}}
+
     </div>
+</div>
+</div>
 </div>
 </div>
 @endsection

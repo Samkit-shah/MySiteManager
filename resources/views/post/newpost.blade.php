@@ -7,44 +7,46 @@
 
             <div class="col-md-6">
                 <input id="title" type="title" class="form-control @error('title') is-invalid @enderror" name="title"
-                       value="{{ old('title') }}" required autocomplete="title" autofocus>
+                    value="{{ old('title') }}" required autocomplete="title" autofocus>
 
                 @error('title')
-                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
                 @enderror
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
+            <label for="description"
+                class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
 
             <div class="col-md-6">
                 <input id="description" type="description"
-                       class="form-control @error('description') is-invalid @enderror" name="description" required
-                       autocomplete="current-description">
+                    class="form-control @error('description') is-invalid @enderror" name="description" required
+                    autocomplete="current-description">
 
                 @error('description')
-                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
                 @enderror
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="sitelink" class="col-md-4 col-form-label text-md-right">{{ __('Sitelink') }}</label>
+            <label for="sitelink"
+                class="col-md-4 col-form-label text-md-right">{{ __('Sitelink') }}</label>
 
             <div class="col-md-6">
-                <input id="sitelink" type="url" placeholder="https://example.com"
-                       value="https://" class="form-control @error('sitelink') is-invalid @enderror" name="sitelink"
-                       required autocomplete="current-sitelink">
+                <input id="sitelink" type="url" placeholder="https://example.com" value="https://"
+                    class="form-control @error('sitelink') is-invalid @enderror" name="sitelink" required
+                    autocomplete="current-sitelink">
 
                 @error('sitelink')
-                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
                 @enderror
             </div>
         </div>
@@ -67,4 +69,5 @@
             </div>
         </div>
     </form>
+
 </div>

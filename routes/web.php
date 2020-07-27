@@ -35,3 +35,4 @@ Route::get('/sharepost','Sharelink@mailsend')->name('sharepost');
 
 
 Route::get('/downloadPDF/{id}','PostController@downloadPDF')->name('downloadpdf');
+Route::get('/submitfeedback','FeedbackController@submitfeedback')->name('submitfeedback');

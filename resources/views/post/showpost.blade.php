@@ -1,6 +1,14 @@
 @extends('layouts.app')
+<style>
+    .fixed-bottom {
+        background-color: aqua;
+        opacity: 0.9;
 
+    }
+
+</style>
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -9,9 +17,10 @@
 
                 <div class="card-body">
                     @if(session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
+                    <div class="alert alert-success" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        {{ session('status') }}
+                    </div>
                     @endif
 
 
@@ -33,8 +42,7 @@
                             </button>
                         </form>
                         <br>
-                        <form action="{{ route('downloadpdf', [$user->id]) }}"
-                            method="get">
+                        <form action="{{ route('downloadpdf', [$user->id]) }}" method="get">
                             <button type="submit" class="btn btn-primary">
                                 {{ __('Download As Pdf') }}
                             </button>
@@ -47,7 +55,8 @@
                                 <input type="search" name="search" class="form-control"
                                     placeholder="ENTER THE TITLE HERE TO SEARCH">
                                 <span class="input-group-prepend">
-                                    <button type="submit" class="btn btn-primary ">Search/Refresh </button>
+                                    <button type="submit" class="btn btn-primary ">{{ __('Search/Refresh') }}
+                                    </button>
                                 </span>
                             </div>
                         </form>
@@ -55,60 +64,84 @@
 
                     <br>
                     @if(Session::has('success'))
-                        <div class="alert alert-success fade-message">
+                    <div class="alert alert-success fade-message">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 
-                            {!! Session::get('success') !!}
+                        {!! Session::get('success') !!}
 
-                        </div>
+                    </div>
 
                     @endif
                     @if(Session::has('mailsent'))
-                        <div class="alert alert-success fade-mail-message">
-                            {!! Session::get('mailsent') !!}
+                    <div class="alert alert-success fade-mail-message">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        {!! Session::get('mailsent') !!}
 
-                        </div>
+                    </div>
 
                     @endif
 
 
 
                     @if($posts->count()>0)
-                        @foreach($posts as $post)
-                            <div class="card-deck">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="card-header">
-                                            <h2>{{ $post->title }}</h2>
-                                        </div>
-                                        <a style="font-size: 20px">Description </a>{{ $post->description }}
-                                        <br />
-                                        <a style="font-size: 20px">Site Link </a>
-                                        <a href="{{ $post->sitelink }}" target="_blank">{{ $post->sitelink }}</a>
-                                        <br />
-                                        <a style="font-size: 20px">Posted
-                                            On </a>{{ $post->created_at->format('d/m/Y') }}
-                                        <br />
-                                        <form
-                                            action="{{ route('deletelink', [$post->id]) }}"
-                                            method="get">
-                                            <button type="submit" class="btn btn-primary">
-                                                {{ __('Delete this Link') }}
-                                            </button>
-                                        </form>
-
-                                    </div>
+                    @foreach($posts as $post)
+                    <div class="card-deck">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-header">
+                                    <h2>{{ $post->title }}</h2>
                                 </div>
+                                <a style="font-size: 20px">Description </a>{{ $post->description }}
+                                <br />
+                                <a style="font-size: 20px">Site Link </a>
+                                <a href="{{ $post->sitelink }}" target="_blank">{{ $post->sitelink }}</a>
+                                <br />
+                                <a style="font-size: 20px">Posted
+                                    On </a>{{ $post->created_at->format('d/m/Y') }}
+                                <br />
+                                <form action="{{ route('deletelink', [$post->id]) }}" method="get">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('Delete this Link') }}
+                                    </button>
+                                </form>
+
                             </div>
-                            <br>
-                        @endforeach
-                    @else
-                        <div class="alert alert-success" role="alert">
-                            No Results
                         </div>
+                    </div>
+                    <br>
+                    @endforeach
+                    @else
+                    <div class="alert alert-success" role="alert">
+                        No Results
+                    </div>
                     @endif
                 </div>
             </div>
         </div>
     </div>
+
+
+</div>
+<div class="fixed-bottom">
+
+    <div class="alert alert-success" style="margin-bottom: 0">
+        <form action="/submitfeedback" method="GET">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+
+
+            <div class="input-group">
+                <label for="sitelink"
+                    class="col-md-2 col-form-label text-md-right">{{ __('Feedback/Comments') }}</label>
+                <input type="text" name="feedback" class="form-control "
+                    placeholder="Please Share Your Valuable Feedback">
+                <span class="input-group-prepend">
+                    <button type="submit" class="btn btn-primary ">{{ __('Submit') }}
+                    </button>
+                </span>
+
+            </div>
+        </form>
+    </div>
+
 </div>
 @endsection
