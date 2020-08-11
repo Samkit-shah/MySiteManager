@@ -89,7 +89,7 @@
                         @foreach($posts as $post)
 
 
-                            <div class="card">
+                            <div class="card" style="width: 345px;height:400px; float: left;">
                                 <div class="card-body" style="padding: 5px">
                                     <div class="card-header">
                                         <h2>{{ $post->title }}</h2>
