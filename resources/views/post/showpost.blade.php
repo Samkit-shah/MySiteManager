@@ -90,7 +90,7 @@
 
 
                             <div class="card" style="width: 345px;height:400px; float: left;padding:5px;margin:5px">
-                                <div class="card-body">
+                                <div class="card-body" style="padding: 5px">
                                     <div class="card-header">
                                         <h2>{{ $post->title }}</h2>
                                     </div>
