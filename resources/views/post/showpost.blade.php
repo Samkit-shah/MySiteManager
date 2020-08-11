@@ -119,8 +119,8 @@
                     @else
                         <div class="alert alert-success" role="alert">
                             No Results,<br>
-                            Please Re-Check the word you searched for or <a
-                                href="/showposts">{{ __('refresh here.') }}
+                            Please Re-Check the word you searched for or
+                            <a href="/showposts">{{ __('refresh here.') }}
                             </a> .
 
 
