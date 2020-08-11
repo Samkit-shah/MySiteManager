@@ -89,8 +89,8 @@
                         @foreach($posts as $post)
 
 
-                            <div class="card" style="width: 345px;height:400px; float: left;">
-                                <div class="card-body" style="padding: 5px">
+                            <div class="card" style="width: 345px; float: left;margin:5px">
+                                <div class="card-body" style="padding: 8px">
                                     <div class="card-header">
                                         <h2>{{ $post->title }}</h2>
                                     </div>
@@ -102,12 +102,16 @@
                                     <a style="font-size: 20px">Posted
                                         On </a>{{ $post->created_at->format('d/m/Y') }}
                                     <br />
-                                    <form action="{{ route('deletelink', [$post->id]) }}"
-                                        method="get">
-                                        <button type="submit" class="btn btn-danger">
-                                            {{ __('Delete this Link') }}
-                                        </button>
-                                    </form>
+                                    <div class="card-footer">
+                                        <form
+                                            action="{{ route('deletelink', [$post->id]) }}"
+                                            method="get">
+                                            <button type="submit" class="btn btn-danger">
+                                                {{ __('Delete this Link') }}
+                                            </button>
+                                        </form>
+                                    </div>
+
 
                                 </div>
                             </div>
