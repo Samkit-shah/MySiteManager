@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<link rel="stylesheet" type="text/css" href="{{ secure_asset('css/showpost.css') }}">
+{{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/showpost.css') }}">
+--}}
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -76,47 +77,51 @@
 
                     @endif
 
+                    <div class="row">
 
 
-                    @if($posts->count()>0)
-                        @foreach($posts as $post)
+                        @if($posts->count()>0)
+                            @foreach($posts as $post)
+                                <div class="col-sm-4" style="padding: 5px">
+
+                                    <div class="card" id="linkdetails">
+                                        <div class="card-body" style="padding: 8px">
+                                            <div class="card-header">
+                                                <h2>{{ $post->title }}</h2>
+                                            </div>
+                                            <a style="font-size: 20px">Description </a>{{ $post->description }}
+                                            <br />
+                                            <a style="font-size: 20px">Site Link </a>
+                                            <a href="{{ $post->sitelink }}"
+                                                target="_blank">{{ $post->sitelink }}</a>
+                                            <br />
+                                            <a style="font-size: 20px">Posted
+                                                On
+                                            </a>{{ $post->created_at->format('d/m/Y') }}
+                                            <br />
+                                            <div class="card-footer" style="background-color: inherit">
+
+                                                <form
+                                                    action="{{ route('deletelink', [$post->id]) }}"
+                                                    method="get">
+                                                    <button type="submit" class="btn btn-danger">
+                                                        {{ __('Delete this Link') }}
+                                                    </button>
+                                                </form>
+
+                                            </div>
 
 
-                            <div class="card" id="linkdetails">
-                                <div class="card-body" style="padding: 8px">
-                                    <div class="card-header">
-                                        <h2>{{ $post->title }}</h2>
+                                        </div>
                                     </div>
-                                    <a style="font-size: 20px">Description </a>{{ $post->description }}
-                                    <br />
-                                    <a style="font-size: 20px">Site Link </a>
-                                    <a href="{{ $post->sitelink }}" target="_blank">{{ $post->sitelink }}</a>
-                                    <br />
-                                    <a style="font-size: 20px">Posted
-                                        On </a>{{ $post->created_at->format('d/m/Y') }}
-                                    <br />
-                                    <div class="card-footer" style="background-color: inherit">
-
-                                        <form
-                                            action="{{ route('deletelink', [$post->id]) }}"
-                                            method="get">
-                                            <button type="submit" class="btn btn-danger">
-                                                {{ __('Delete this Link') }}
-                                            </button>
-                                        </form>
-
-                                    </div>
-
-
                                 </div>
+                            @endforeach
+                        @else
+                            <div class="alert alert-success" role="alert">
+                                No Results
                             </div>
-
-                        @endforeach
-                    @else
-                        <div class="alert alert-success" role="alert">
-                            No Results
-                        </div>
-                    @endif
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
