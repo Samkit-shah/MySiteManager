@@ -21,7 +21,7 @@ class PostController extends Controller
     {
         $this->validate($request, [
             'title' => ['required',],
-            'sitelink' => ['required',],
+            'sitelink' => ['required','url'],
         ]);
 // $this->validate()
 

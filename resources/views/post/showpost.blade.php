@@ -37,7 +37,7 @@
                         <br>
                         <form action="{{ route('sharepost', [$user]) }}" method="get">
                             <button type="submit" class="btn btn-primary" disabled>
-                                {{ __('Send All The Links to My Mail') }} (not working on
+                                {{ __('Send All The Links to My Mail') }} (disabled on
                                 heroku)
                             </button>
                         </form>
@@ -87,32 +87,31 @@
 
                     @if($posts->count()>0)
                         @foreach($posts as $post)
-                            <div class="card-deck">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="card-header">
-                                            <h2>{{ $post->title }}</h2>
-                                        </div>
-                                        <a style="font-size: 20px">Description </a>{{ $post->description }}
-                                        <br />
-                                        <a style="font-size: 20px">Site Link </a>
-                                        <a href="{{ $post->sitelink }}" target="_blank">{{ $post->sitelink }}</a>
-                                        <br />
-                                        <a style="font-size: 20px">Posted
-                                            On </a>{{ $post->created_at->format('d/m/Y') }}
-                                        <br />
-                                        <form
-                                            action="{{ route('deletelink', [$post->id]) }}"
-                                            method="get">
-                                            <button type="submit" class="btn btn-primary">
-                                                {{ __('Delete this Link') }}
-                                            </button>
-                                        </form>
 
+
+                            <div class="card" style="width: 345px;height:300px; float: left;padding:5px;margin:5px">
+                                <div class="card-body">
+                                    <div class="card-header">
+                                        <h2>{{ $post->title }}</h2>
                                     </div>
+                                    <a style="font-size: 20px">Description </a>{{ $post->description }}
+                                    <br />
+                                    <a style="font-size: 20px">Site Link </a>
+                                    <a href="{{ $post->sitelink }}" target="_blank">{{ $post->sitelink }}</a>
+                                    <br />
+                                    <a style="font-size: 20px">Posted
+                                        On </a>{{ $post->created_at->format('d/m/Y') }}
+                                    <br />
+                                    <form action="{{ route('deletelink', [$post->id]) }}"
+                                        method="get">
+                                        <button type="submit" class="btn btn-danger">
+                                            {{ __('Delete this Link') }}
+                                        </button>
+                                    </form>
+
                                 </div>
                             </div>
-                            <br>
+
                         @endforeach
                     @else
                         <div class="alert alert-success" role="alert">
