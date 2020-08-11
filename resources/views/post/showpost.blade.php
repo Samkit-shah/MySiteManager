@@ -102,7 +102,8 @@
                                     <a style="font-size: 20px">Posted
                                         On </a>{{ $post->created_at->format('d/m/Y') }}
                                     <br />
-                                    <div class="card-footer">
+                                    <div class="card-footer" style="background-color: inherit">
+
                                         <form
                                             action="{{ route('deletelink', [$post->id]) }}"
                                             method="get">
@@ -110,6 +111,7 @@
                                                 {{ __('Delete this Link') }}
                                             </button>
                                         </form>
+
                                     </div>
 
 
