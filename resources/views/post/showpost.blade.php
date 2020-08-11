@@ -1,14 +1,7 @@
 @extends('layouts.app')
-{{-- <style>
-    .fixed-bottom {
-        background-color: aqua;
-        opacity: 0.9;
 
-    }
-
-</style> --}}
 @section('content')
-
+<link rel="stylesheet" type="text/css" href="{{ secure_asset('css/showpost.css') }}">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -89,7 +82,7 @@
                         @foreach($posts as $post)
 
 
-                            <div class="card" style="width: 345px; float: left;margin:5px">
+                            <div class="card" id="linkdetails">
                                 <div class="card-body" style="padding: 8px">
                                     <div class="card-header">
                                         <h2>{{ $post->title }}</h2>

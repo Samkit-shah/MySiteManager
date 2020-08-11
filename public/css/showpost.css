@@ -1,0 +1,11 @@
+#linkdetails {
+    width: 345px;
+    float: left;
+    margin: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+    #linkdetails {
+        width: 100%;
+    }
+}
