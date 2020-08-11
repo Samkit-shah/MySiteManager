@@ -77,10 +77,9 @@
 
                     @endif
 
-                    <div class="row">
 
-
-                        @if($posts->count()>0)
+                    @if($posts->count()>0)
+                        <div class="row">
                             @foreach($posts as $post)
                                 <div class="col-sm-4" style="padding: 5px">
 
@@ -116,12 +115,13 @@
                                     </div>
                                 </div>
                             @endforeach
-                        @else
-                            <div class="alert alert-success" role="alert">
-                                No Results
-                            </div>
-                        @endif
-                    </div>
+                        </div>
+                    @else
+                        <div class="alert alert-success" role="alert">
+                            No Results
+                        </div>
+                    @endif
+
                 </div>
             </div>
         </div>
