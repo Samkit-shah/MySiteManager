@@ -98,7 +98,7 @@
                                                 On
                                             </a>{{ $post->created_at->format('d/m/Y') }}
                                             <br />
-                                            <div class="card-footer" style="background-color: inherit">
+                                            <div class="card-footer" style="background-color: inherit;padding:5px">
 
                                                 <form
                                                     action="{{ route('deletelink', [$post->id]) }}"
