@@ -23,7 +23,7 @@ class PostController extends Controller
             'title' => ['required',],
             'sitelink' => ['required','url'],
         ]);
-// $this->validate()
+
 
         $user_id = Auth::id();
         $post = new Post();
@@ -39,11 +39,10 @@ class PostController extends Controller
     }
 
 
-    public function search(Request $request)
-    {
-
-        return view('post.search', compact('searchresult'));
-    }
+    // public function search(Request $request)
+    // {
+    //     return view('post.search', compact('searchresult'));
+    // }
 
     public function showpost(Request $request)
     {
@@ -51,7 +50,8 @@ class PostController extends Controller
         $search = $request->get('search');
         $user = Auth::user();
 
-        $posts = Post::where('user_id', $user->id)->where('title', 'like', '%' . $search . '%')->get();
+        $posts = Post::where('user_id', $user->id)->where('title', 'like', '%' . $search .
+        '%')->get()->sortByDesc('created_at');
 
 
 

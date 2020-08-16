@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -58,7 +59,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
+                        <div class="form-group row ">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
@@ -74,11 +75,13 @@
                                     {{ __('Forgot Your Password?') }}
                                     </a> --}}
                                 @endif
-
-
-                                <a href="{{ url('auth/google') }}" style="margin-top: 20px;"
-                                    class="btn btn-lg btn-success btn-block">
-                                    <strong>Login With Google</strong>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <a href="{{ url('auth/google') }}" class="btn"
+                                    style="background-color: aqua"> Login With Gmail
+                                    <i class='	fab fa-google-plus-g' style='font-size:18px;color:red'></i>
                                 </a>
                             </div>
                         </div>

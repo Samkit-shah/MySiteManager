@@ -98,7 +98,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
+                        <div class="form-group row ">
                             <div class="col-md-6 offset-md-4">
                                 <p>
                                     <span class="required">*</span>Required fields
@@ -107,6 +107,15 @@
                                     {{ __('Register') }}
                                 </button>
 
+                            </div>
+
+                        </div>
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <a href="{{ url('auth/google') }}" class="btn"
+                                    style="background-color: aqua"> Register With Gmail
+                                    <i class='	fab fa-google-plus-g' style='font-size:18px;color:red'></i>
+                                </a>
                             </div>
                         </div>
 

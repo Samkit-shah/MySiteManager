@@ -31,7 +31,7 @@ Route::get('/myprofile', 'PostController@myprofile')->name('myprofile');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/addnewpost', 'PostController@createpost')->name('add.newpost');
 Route::get('/showposts', 'PostController@showpost')->name('showposts');
-Route::get('/search', 'PostController@search')->name('search');
+Route::get('/search', 'PostController@showpost')->name('search');
 
 Route::get('delete-records','PostController@index');
 Route::get('delete/{id}','PostController@deletelink')->name('deletelink');

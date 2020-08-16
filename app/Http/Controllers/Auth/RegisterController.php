@@ -140,7 +140,7 @@ class RegisterController extends Controller
 
      } catch (Exception $e) {
      dd($e->getMessage());
-     echo "Sorry,We Got An Error"
+     echo "Sorry,We Got An Error";
      }
      
      }
