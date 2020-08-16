@@ -71,7 +71,7 @@
                             $(function () {
                                 setTimeout(function () {
                                     $('.fade-message').slideUp();
-                                }, 800);
+                                }, 600);
                             });
 
                         </script>
@@ -87,7 +87,7 @@
                             $(function () {
                                 setTimeout(function () {
                                     $('.fade-mail-message').slideUp();
-                                }, 800);
+                                }, 600);
                             });
 
                         </script>
