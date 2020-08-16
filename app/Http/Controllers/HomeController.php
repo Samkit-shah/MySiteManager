@@ -16,6 +16,9 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware(['auth', 'verified']);
+        // For Not Verifing USers
+        // $this->middleware(['auth']);
+        
     }
 
     /**

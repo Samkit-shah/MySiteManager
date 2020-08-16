@@ -11,10 +11,10 @@
 
                 <div class="card-body">
                     @if(session('status'))
-                        <div class="alert alert-success" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            {{ session('status') }}
-                        </div>
+                    <div class="alert alert-success" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        {{ session('status') }}
+                    </div>
                     @endif
 
 
@@ -36,8 +36,7 @@
                             </button>
                         </form>
                         <br>
-                        <form action="{{ route('downloadpdf', [$user->id]) }}"
-                            method="get">
+                        <form action="{{ route('downloadpdf', [$user->id]) }}" method="get">
                             <button type="submit" class="btn btn-primary">
                                 {{ __('Download As Pdf') }}
                             </button>
@@ -50,8 +49,7 @@
                                 <input type="search" name="search" class="form-control"
                                     placeholder="ENTER THE TITLE HERE TO SEARCH">
                                 <span class="input-group-prepend">
-                                    <button type="submit"
-                                        class="btn btn-primary ">{{ __('Search/Refresh') }}
+                                    <button type="submit" class="btn btn-primary ">{{ __('Search/Refresh') }}
                                     </button>
                                 </span>
                             </div>
@@ -60,75 +58,66 @@
 
                     <br>
                     @if(Session::has('success'))
-                        <div class="alert alert-success fade-message">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <div class="alert alert-success fade-message">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 
-                            {!! Session::get('success') !!}
+                        {!! Session::get('success') !!}
 
-                        </div>
+                    </div>
 
                     @endif
                     @if(Session::has('mailsent'))
-                        <div class="alert alert-success fade-mail-message">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            {!! Session::get('mailsent') !!}
+                    <div class="alert alert-success fade-mail-message">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        {!! Session::get('mailsent') !!}
 
-                        </div>
+                    </div>
 
                     @endif
 
 
                     @if($posts->count()>0)
-                        <div class="row">
-                            @foreach($posts as $post)
-                                <div class="col-sm-4" style="padding: 5px">
+                    <div class="row">
+                        @foreach($posts as $post)
+                        <div class="col-sm-4" style="padding: 5px">
 
-                                    <div class="card" id="linkdetails">
-                                        <div class="card-body" style="padding: 8px">
-                                            <div class="card-header">
-                                                <h2>{{ $post->title }}</h2>
-                                            </div>
-                                            <a style="font-size: 20px">Description </a>{{ $post->description }}
-                                            <br />
-                                            <a style="font-size: 20px">Site Link </a>
-                                            <a href="{{ $post->sitelink }}"
-                                                target="_blank">{{ $post->sitelink }}</a>
-                                            <br />
-                                            <a style="font-size: 20px">Posted
-                                                On
-                                            </a>{{ $post->created_at->format('d/m/Y') }}
-                                            <br />
-                                            <div class="card-footer" style="background-color: inherit;padding:5px">
-
-                                                <form
-                                                    action="{{ route('deletelink', [$post->id]) }}"
-                                                    method="get">
-                                                    <button type="submit" class="btn btn-danger">
-                                                        {{ __('Delete this Link') }}
-                                                    </button>
-                                                </form>
-
-                                            </div>
-
-
-                                        </div>
+                            <div class="card" id="linkdetails">
+                                <div class="card-body" style="padding: 8px">
+                                    <div class="card-header">
+                                        <h2>{{ $post->title }}</h2>
                                     </div>
+                                    <a style="font-size: 20px">Description </a>{{ $post->description }}
+                                    <br />
+                                    <a style="font-size: 20px">Site Link </a>
+                                    <a href="{{ $post->sitelink }}" target="_blank">{{ $post->sitelink }}</a>
+                                    <br />
+                                    <a style="font-size: 20px">Posted
+                                        On
+                                    </a>{{ $post->created_at->format('d/m/Y') }}
+                                    <br />
+                                    <div class="card-footer" style="background-color: inherit;padding:5px">
+
+                                        <form action="{{ route('deletelink', [$post->id]) }}" method="get">
+                                            <button type="submit" class="btn btn-danger">
+                                                {{ __('Delete this Link') }}
+                                            </button>
+                                        </form>
+
+                                    </div>
+
+
                                 </div>
-                            @endforeach
+                            </div>
                         </div>
+                        @endforeach
+                    </div>
                     @else
-                        <div class="alert alert-success" role="alert">
-                            No Results,<br>
-                            Please Re-Check the word you searched for or
-                            <a href="/showposts">{{ __('refresh here.') }}
-                            </a> .
-
-
-
-
-
-
-                        </div>
+                    <div class="alert alert-success" role="alert">
+                        No Results,<br>
+                        Please Re-Check the word you searched for or
+                        <a href="/showposts">{{ __('refresh here.') }}
+                        </a>
+                    </div>
                     @endif
 
                 </div>

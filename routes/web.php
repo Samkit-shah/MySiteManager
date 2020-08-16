@@ -17,7 +17,13 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcomepage');
 
-Auth::routes();
+// Auth::routes(); 
+// for no verification
+Auth::routes(['verify' => true]);
+
+Route::get('auth/google', 'Auth\RegisterController@redirectToGoogle');
+Route::get('auth/google/callback', 'Auth\RegisterController@handleGoogleCallback');
+
 
 
 Route::get('/myprofile', 'PostController@myprofile')->name('myprofile');

@@ -65,11 +65,21 @@
                                 </button>
 
                                 @if(Route::has('password.request'))
-                                    <a class="btn btn-link disabled"
-                                        href="{{ route('password.request') }}">
+                                    <a class="btn btn-link " href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
+                                    {{-- when email system not working --}}
+                                    {{-- <a class="btn btn-link disabled"
+                                        href="{{ route('password.request') }}">
+                                    {{ __('Forgot Your Password?') }}
+                                    </a> --}}
                                 @endif
+
+
+                                <a href="{{ url('auth/google') }}" style="margin-top: 20px;"
+                                    class="btn btn-lg btn-success btn-block">
+                                    <strong>Login With Google</strong>
+                                </a>
                             </div>
                         </div>
                     </form>
