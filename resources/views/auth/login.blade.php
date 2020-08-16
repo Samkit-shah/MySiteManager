@@ -80,8 +80,9 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <a href="{{ url('auth/google') }}" class="btn"
-                                    style="background-color: aqua"> Login With Gmail
-                                    <i class='	fab fa-google-plus-g' style='font-size:18px;color:red'></i>
+                                    style="background-color: rgb(190, 206, 241)"> Login With
+                                    <i class='	fab fa-google'
+                                        style='font-size:18px;color:rgba(187, 3, 3, 0.651)'></i>mail
                                 </a>
                             </div>
                         </div>
