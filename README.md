@@ -1,3 +1,17 @@
+
+ <p style="font-size: 25px"> Save your links and Notes and Get it Whenever you wish to browse</p>
+                    <ul class="list-group">
+                        <li>Register yourself and Login</li>
+                        <li>Add the links that you wish to save.</li>
+                        <li>And your links will be saved</li>
+                        <li>Search it whenever you wish to browse</li>
+                    </ul>
+
+<a>VISIT THE WEBSITE HOSTED <a href="bit.ly/Mysitemanager">HERE</a>
+    <br>
+    <p >Note:The website is hosted on Heroku(free tier) thus the email services are not working</p>
+
+
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">
