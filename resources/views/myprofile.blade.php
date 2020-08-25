@@ -30,7 +30,7 @@
                             <li class="list-group-item">Last Login On:
                                 {{ $user->last_sign_in_at->format('d/m/Y') }}
                                 i.e {{ $user->last_sign_in_at->DiffForHumans() }}</li>
-                            <li class="list-group-item ">To Reset Your Password (not working on heroku.)
+                            <li class="list-group-item ">To Reset Your Password
                                 : @if (Route::has('password.request'))
                                 <a class="btn btn-link" href="{{ route('password.request') }}"
                                     style="padding: 0px">
@@ -42,27 +42,34 @@
                         </ul>
                     </div>
 
-
-                    <form method="get" action="{{ route('home') }}">
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Add a new link') }}
-                                </button>
-                            </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <form method="get" action="{{ route('home') }}">
+                                <div class="form-group row mb-0">
+                                    <div class="col-md-8 offset-md-4">
+                                        <button type="submit" class="btn btn-primary">
+                                            {{ __('Add new Links') }}
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                    </form>
-                    <br>
-                    <form action="/showposts" method="get">
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Show My Links') }}
-                                </button>
-                            </div>
+                        <div class="col-md-3">
+                            <form method="get" action="{{ route('addnotes') }}">
+                                <div class="form-group row mb-0">
+                                    <div class="col-md-8 offset-md-4">
+                                        <button type="submit" class="btn btn-primary">
+                                            {{ __('Add New Notes') }}
+                                        </button>
+                                    </div>
 
+                                </div>
+                            </form>
                         </div>
-                    </form>
+                    </div>
+
+
+
 
                 </div>
 

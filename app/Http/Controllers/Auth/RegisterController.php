@@ -119,7 +119,7 @@ class RegisterController extends Controller
 
      Auth::login($finduser);
 
-     return redirect('/home');
+     return redirect('/myprofile');
 
      }else{
      $newUser = User::create([
@@ -128,20 +128,20 @@ class RegisterController extends Controller
      'google_id'=> $user->id,
      'password' => bcrypt('123456dummy'),
     'contactno' => '1234567890',
- 
+
      ]);
      $newUser->markEmailAsVerified();
 
 
      Auth::login($newUser);
 
-     return redirect('/home');
+     return redirect('/myprofile');
      }
 
      } catch (Exception $e) {
-     dd($e->getMessage());
+    //  dd($e->getMessage());
      echo "Sorry,We Got An Error";
      }
-     
+
      }
 }

@@ -13,13 +13,17 @@
         <script src='https://kit.fontawesome.com/a076d05399.js'></script>
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+        <script src="{{ asset('js/loading.js') }}" defer></script>
+        <script src="{{ asset('js/addnewnote.js') }}" type="application/javascript"> </script>
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/loading.css') }}" rel="stylesheet">
+
         <style>
             nav div a.dropdown-item:hover {
 
@@ -27,9 +31,13 @@
             }
 
         </style>
+
     </head>
-    <body style=" background-color: rgba(55, 51, 88, 0.5);">
+
+    <body id="body" style=" background-color: rgba(55, 51, 88, 0.5);">
+
         <div id="app">
+
             <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
@@ -63,8 +71,13 @@
                                 @endif
                             @else
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('myprofile') }}">
-                                        {{ __('MyProfile') }}
+                                    <a class="nav-link" href="{{ route('showposts') }}">
+                                        {{ __('MyLinks') }}
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('shownotes') }}">
+                                        {{ __('MyNotes') }}
                                     </a>
                                 </li>
                                 <li class="nav-item dropdown">
@@ -75,6 +88,10 @@
 
                                     <div class="dropdown-menu dropdown-menu-right navbar-dark bg-dark "
                                         aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('myprofile') }}"
+                                            style="color: white">
+                                            {{ __('MyProfile') }}
+                                        </a>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             style="color: white" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -99,5 +116,6 @@
                 @yield('myprofile')
             </main>
         </div>
+
     </body>
 </html>

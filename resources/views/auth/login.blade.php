@@ -82,7 +82,7 @@
                                 <a href="{{ url('auth/google') }}" class="btn"
                                     style="background-color: rgb(190, 206, 241)"> Login With
                                     <i class='	fab fa-google'
-                                        style='font-size:18px;color:rgba(187, 3, 3, 0.651)'></i>mail
+                                        style='font-size:18px;color:rgba(187, 3, 3, 0.651)'></i>oogle
                                 </a>
                             </div>
                         </div>

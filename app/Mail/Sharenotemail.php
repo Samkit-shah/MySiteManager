@@ -7,19 +7,19 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class Sharepostmail extends Mailable
+class Sharenotemail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $linkdata;
+    public $notedata;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($linkdata)
+    public function __construct($notedata)
     {
-     $this->linkdata = $linkdata;
+     $this->notedata = $notedata;
     }
 
     /**
@@ -29,8 +29,8 @@ class Sharepostmail extends Mailable
      */
     public function build()
     {
-           return $this->subject('Saved Sites at MySiteManager')
-           ->view('email.sharepost');
+           return $this->subject('Saved Notes at MySiteManager')
+           ->view('email.sharenotes');
 
     }
 }

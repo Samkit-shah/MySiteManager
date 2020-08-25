@@ -1,9 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
-{{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/showpost.css') }}">
---}}
+<link rel="stylesheet" type="text/css" href="{{ asset('css/showpost.css') }}">
+<script src="{{ asset('js/showpost.js') }}" type="application/javascript"> </script>
+
 <div class="container">
+    <div id="loader">
+
+        <div class="spinner-border centerloading" role="status">
+
+        </div>
+
+
+
+    </div>
+    <!-- Back to top button -->
+    <a id="back2Top" title="Back to top" href="#">&#10148;</a>
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card ">
@@ -23,25 +35,30 @@
                     <h3 class="mb-5 mt-4">Welcome {{ $user->name }},<br> You have saved {{ $posts->count() }}
                         Links
                     </h3>
-
-                    <form action="/home" method="get">
-                        <button type="submit" class="btn btn-primary">
-                            {{ __('Add New links') }}
-                        </button>
-                    </form>
-                    <br>
-                    <form action="{{ route('sharepost', [$user]) }}" method="get">
-                        <button type="submit" class="btn btn-primary">
-                            {{ __('Send All The Links to My Mail') }}
-                        </button>
-                    </form>
-                    <br>
-                    <form action="{{ route('downloadpdf', [$user->id]) }}" method="get">
-                        <button type="submit" class="btn btn-primary">
-                            {{ __('Download As Pdf') }}
-                        </button>
-                    </form>
-                    <br>
+                    <div class="row" style="padding: 5px">
+                        <div class="col-md-2" style="padding: 5px">
+                            <form action="/home" method="get">
+                                <button type="submit" class="btn btn-success">
+                                    {{ __('Add New links') }}
+                                </button>
+                            </form>
+                        </div>
+                        <div class="col-md-4" style="padding: 5px">
+                            <form action="{{ route('sharepost', [$user]) }}" method="get">
+                                <button type="submit" class="btn btn-success">
+                                    {{ __('Send All The Links Saved to My Mail') }}
+                                </button>
+                            </form>
+                        </div>
+                        <div class="col-md-2" style="padding: 5px">
+                            <form action="{{ route('downloadpdf', [$user->id]) }}"
+                                method="get">
+                                <button type="submit" class="btn btn-success">
+                                    {{ __('Download As Pdf') }}
+                                </button>
+                            </form>
+                        </div>
+                    </div>
 
 
                     <div class="col-md-14">
@@ -67,14 +84,7 @@
                             {!! Session::get('success') !!}
 
                         </div>
-                        <script>
-                            $(function () {
-                                setTimeout(function () {
-                                    $('.fade-message').slideUp();
-                                }, 600);
-                            });
 
-                        </script>
                     @endif
                     @if(Session::has('mailsent'))
                         <div class="alert alert-success fade-mail-message"
@@ -83,14 +93,7 @@
                             {!! Session::get('mailsent') !!}
 
                         </div>
-                        <script>
-                            $(function () {
-                                setTimeout(function () {
-                                    $('.fade-mail-message').slideUp();
-                                }, 600);
-                            });
 
-                        </script>
 
                     @endif
 
@@ -105,7 +108,8 @@
                                             <div class="card-header">
                                                 <h2>{{ $post->title }}</h2>
                                             </div>
-                                            <a style="font-size: 20px">Description </a>{{ $post->description }}
+                                            <a style="font-size: 20px">Description
+                                            </a>{{ $post->description }}
                                             <br />
                                             <a style="font-size: 20px">Site Link </a>
                                             <a href="{{ $post->sitelink }}"
@@ -120,7 +124,7 @@
                                                 <form
                                                     action="{{ route('deletelink', [$post->id]) }}"
                                                     method="get">
-                                                    <button type="submit" class="btn btn-danger">
+                                                    <button type="submit" class="btn btn-outline-danger">
                                                         {{ __('Delete this Link') }}
                                                     </button>
                                                 </form>
