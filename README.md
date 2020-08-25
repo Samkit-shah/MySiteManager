@@ -8,7 +8,7 @@
                     </ul>
                     <p>Get the Preview of the project <a href="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:6693205714086739968">Here</a></p>
                 
-<a>VISIT THE WEBSITE HOSTED <a href="bit.ly/Mysitemanager">HERE</a>
+<a>VISIT THE WEBSITE HOSTED <a href="bit.ly/Mysitemanager">Here</a>
     <br>
     <p >Note:The website is hosted on Heroku(free tier) thus the email services are not working</p>
 
