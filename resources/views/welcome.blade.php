@@ -84,9 +84,17 @@
 
 
             <div class="container" style="padding-left: 15%">
-
+                <div class="fixed-top" style="text-align: center;background-color:rgba(0, 0, 0, 0.288)">Email
+                    Services
+                    on
+                    this hosted
+                    website has been
+                    disabled. For any further Queries
+                    or Suggestions Mail Us At :<a href="#"
+                        style="color: rgb(184, 103, 255)">infomysitemanager@gmail.com</a>
+                </div>
                 <div>
-                    <h1 id="name" style="padding:0px;margin:0px;font-family:Comic Sans MS, cursive, sans-serif">
+                    <h1 id=" name" style="padding:0px;margin:0px;font-family:Comic Sans MS, cursive, sans-serif">
                     </h1>
                     <p style="font-size: 25px"> Save your links and Get it Whenever you wish to browse</p>
                     <ul class="list-group">
