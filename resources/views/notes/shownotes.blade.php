@@ -133,7 +133,7 @@
                                                         action="{{ route('deletenote', [$notes->id]) }}"
                                                         method="get">
                                                         <button type="submit" class="btn btn-outline-danger">
-                                                            {{ __('Delete this Link') }}
+                                                            {{ __('Delete this Note') }}
                                                         </button>
 
                                                     </form>
@@ -143,7 +143,7 @@
                                                         action="{{ route('editnote', [$notes->id]) }}"
                                                         method="get">
                                                         <button type="submit" class="btn btn-outline-secondary">
-                                                            {{ __('Update this Link') }}
+                                                            {{ __('Update this Note') }}
                                                         </button>
 
                                                     </form>
@@ -161,7 +161,7 @@
                 </div>
             @else
                 <div class="alert alert-success" role="alert" style="color:black">
-                    No Links Found,<br>
+                    No Notes Found,<br>
 
                     <a style="color: rgb(1, 51, 90);text-decoration:underline"
                         href="/home">{{ __('Add Important Notes here!') }}
