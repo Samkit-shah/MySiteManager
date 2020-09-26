@@ -94,8 +94,8 @@
                         style="color: rgb(184, 103, 255)">infomysitemanager@gmail.com</a>
                 </div> --}}
                 <div>
-                    <h1 id=" name" style="padding:0px;margin:0px;font-family:Comic Sans MS, cursive, sans-serif">
-                    </h1>
+                  <h1 id="name" style="padding:0px;margin:0px;font-family:Comic Sans MS, cursive, sans-serif">
+                  </h1>
                     <p style="font-size: 25px"> Save your links and Get it Whenever you wish to browse</p>
                     <ul class="list-group">
                         <li>Register yourself and Login</li>
