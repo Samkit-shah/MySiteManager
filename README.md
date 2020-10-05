@@ -7,7 +7,7 @@
                         <li>And your links will be saved</li>
                         <li>Search it whenever you wish to browse</li>
                     </ul>
-                    <p>Get the Preview of the project <a href="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:6693205714086739968">Here</a></p>
+                    <p>Get the Preview of the project <a href="https://youtu.be/4APhABN9wmk">Here</a></p>
                 
 <a>VISIT THE WEBSITE HOSTED <a href="bit.ly/Mysitemanager">Here</a>
     <br>
