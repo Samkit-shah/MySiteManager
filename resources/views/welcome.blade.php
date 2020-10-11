@@ -124,7 +124,7 @@
 
         </div>
         <div class="footer">
-            <p>Developed By <a href="https://www.samkitshah.tk" target="_blank"
+            <p>Developed By <a href="https://samkit.xyz" target="_blank"
                     style="color: black;font-weight:550">Samkit Shah</a></p>
         </div>
 
