@@ -104,7 +104,7 @@
                             @foreach($notes as $notes)
                                 <div class="col-sm-4" style="padding: 5px">
 
-                                    <div class="card" id="linkdetails">
+                                    <div class="card" id="linkdetails" style="min-height:100%">
                                         <div class="card-body" style="padding: 8px">
                                             <div class="card-header">
                                                 <h2>{{ $notes->topic }}</h2>

@@ -20,11 +20,11 @@ $(document).ready(function() {
 
 $(function() {
     setTimeout(function() {
-        $('.fade-message').slideUp();
-    }, 600);
+        $('.fade-message').fadein();
+    }, 2000);
 });
 $(function() {
     setTimeout(function() {
-        $('.fade-mail-message').slideUp();
-    }, 600);
+        $('.fade-mail-message').fadein();
+    }, 2000);
 });

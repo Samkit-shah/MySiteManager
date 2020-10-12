@@ -96,12 +96,12 @@
                 <div>
                   <h1 id="name" style="padding:0px;margin:0px;font-family:Comic Sans MS, cursive, sans-serif">
                   </h1>
-                    <p style="font-size: 25px"> Save your links and Get it Whenever you wish to browse</p>
+                    <p style="font-size: 25px"> Save your links/Notes and Get it Whenever you wish to browse</p>
                     <ul class="list-group">
                         <li>Register yourself and Login</li>
-                        <li>Add the links that you wish to save.</li>
-                        <li>And your links will be saved</li>
-                        <li>Search it whenever you wish to browse</li>
+                        <li>Add the links/notes that you wish to save.</li>
+                        <li>And your links/notes will be saved</li>
+                        <li>Search it whenever you wish </li>
 
                     </ul>
                 </div>
