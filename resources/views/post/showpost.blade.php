@@ -64,7 +64,8 @@
                         <div class="col-md" style="padding:10px ">
                             <form action="/showposts" method="GET">
                                 <div class="input-group">
-                                    <input type="search" name="searchbytitle" class="form-control" placeholder="Enter The title to search">
+                                    <input type="search" name="searchbytitle" class="form-control"
+                                        placeholder="Enter The title to search">
                                     <span class="input-group-prepend">
                                         <button type="submit" class="btn btn-primary ">{{ __('Search By Title') }}
                                         </button>
@@ -73,7 +74,8 @@
                             </form>
                         </div>
                         <div class="col-md-2 d-flex justify-content-center" style="padding:10px ">
-                            <form action="/showposts" method="GET"><button class="btn btn-outline-dark"> Show All</button>
+                            <form action="/showposts" method="GET"><button class="btn btn-outline-dark"> Show
+                                    All</button>
                             </form>
                         </div>
                         <div class="col-md" style="padding:10px;">
@@ -82,8 +84,7 @@
                                     <input type="search" name="searchbydescription" class="form-control"
                                         placeholder="Enter the description word to find ">
                                     <span class="input-group-prepend">
-                                        <button type="submit"
-                                            class="btn btn-primary ">{{ __('Search by Description') }}
+                                        <button type="submit" class="btn btn-primary ">{{ __('Search by Description') }}
                                         </button>
                                     </span>
                                 </div>
@@ -99,7 +100,8 @@
 
 
                     @if(Session::has('success'))
-                    <div class="alert alert-success fade-message" style="background-color: rgb(133, 146, 146);color:black">
+                    <div class="alert alert-success fade-message"
+                        style="background-color: rgb(133, 146, 146);color:black">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 
                         {!! Session::get('success') !!}
@@ -108,7 +110,8 @@
 
                     @endif
                     @if(Session::has('mailsent'))
-                    <div class="alert alert-success fade-mail-message" style="background-color: rgb(133, 146, 146);color:black">
+                    <div class="alert alert-success fade-mail-message"
+                        style="background-color: rgb(133, 146, 146);color:black">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                         {!! Session::get('mailsent') !!}
 
@@ -119,17 +122,17 @@
 
 
                     @if($posts->count()>0)
-@if($searchresults)
-    <div class="alert alert-success fade-message" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        {{ $searchresults }}
-    </div>
-@endif
+                    @if($searchresults)
+                    <div class="alert alert-success fade-message" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        {{ $searchresults }}
+                    </div>
+                    @endif
                     <div class="row">
                         @foreach($posts as $post)
                         <div class="col-sm-4" style="padding: 5px">
 
-                            <div class="card" id="linkdetails" style="min-height:100%" >
+                            <div class="card" id="linkdetails" style="min-height:100%">
                                 <div class="card-body" style="padding: 8px">
                                     <div class="card-header">
                                         <h2>{{ $post->title }}</h2>
@@ -164,10 +167,12 @@
                     <div class="alert alert-success" role="alert" style="color:black">
                         No Links Found,<br>
 
-                        <a style="color: rgb(1, 51, 90);text-decoration:underline" href="/home">{{ __('Add Important links here!') }}
+                        <a style="color: rgb(1, 51, 90);text-decoration:underline"
+                            href="/home">{{ __('Add Important links here!') }}
                         </a>
                         <br>
-                        <a style="color: rgb(1, 51, 90);text-decoration:underline" href="/showposts">{{ __('Please Refresh Here!') }}
+                        <a style="color: rgb(1, 51, 90);text-decoration:underline"
+                            href="/showposts">{{ __('Please Refresh Here!') }}
                         </a>
                     </div>
                     @endif
