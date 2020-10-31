@@ -21,6 +21,7 @@ class CreateNotesTable extends Migration
               $table->String('topic');
               $table->String('typeofnote');
               $table->timestamps();
+
         });
     }
 

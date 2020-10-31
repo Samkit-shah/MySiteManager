@@ -31,6 +31,8 @@ Route::get('/myprofile', 'PostController@myprofile')->name('myprofile');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/addnewpost', 'PostController@createpost')->name('add.newpost');
 Route::get('/showposts', 'PostController@showpost')->name('showposts');
+
+
 Route::get('/searchposts', 'PostController@showpost')->name('searchpost');
 
 Route::get('delete-records','PostController@index');
@@ -53,3 +55,15 @@ Route::get('/addnote', 'NotesController@addnotespage')->name('addnotes');
 Route::get('/sharemail','Sharelink@notemailsend')->name('sharenotesmail');
 Route::get('editnote/{id}','NotesController@editnotedata')->name('editnote');
 Route::get('updatenotedata/{id}','NotesController@updatenotedata')->name('updatenote');
+
+
+
+
+
+Route::get('/showpocket','PocketController@showpocket' )->name('showpocket');
+Route::post('/addevent','PocketController@addevent')->name('add.event');
+Route::get('/eventdetails/{eventid}','PocketController@eventdetails')->name('eventdetails');
+Route::post('/addearned/{eventid}','PocketController@addearned')->name('add.earned');
+Route::post('/addspent/{eventid}','PocketController@addspent')->name('add.spent');
+
+Route::get('/deleteevent/{eventid}','PocketController@deleteevent')->name('deleteevent');

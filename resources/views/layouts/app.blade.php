@@ -70,6 +70,11 @@
                                     </li>
                                 @endif
                             @else
+                             <li class="nav-item">
+                                 <a class="nav-link" href="{{ route('showpocket') }}">
+                                     {{ __('MyPocket') }}
+                                 </a>
+                             </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('showposts') }}">
                                         {{ __('MyLinks') }}

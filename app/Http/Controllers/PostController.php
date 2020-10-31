@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\Welcomemail;
 use App\Post;
+use App\User;
 use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Facades\DB;
@@ -85,5 +86,6 @@ class PostController extends Controller {
 
         return $pdf->download( 'mysitemanager(sitelinks).pdf' );
     }
+
 
 }
