@@ -12,7 +12,7 @@
     <h1 class="text-center"> Pocket Manager <button class="badge badge-secondary" data-toggle="modal"
             data-target="#exampleModal">Add Event</button></h1>
 @foreach($events as $events)
-      <div class="card" style="width: 100%;margin:15px">
+      <div class="card" style="width: auto;margin:15px">
           <div class="card-body text-center">
               <h5 class="card-title">{{ $events->event_name }}</h5>
               <h6 class="card-subtitle mb-2 text-muted">
