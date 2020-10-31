@@ -3,11 +3,10 @@
 @section('content')
 <div class="container">
 @if(count($errors) > 0)
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#addearned').modal('show');
-        });
-    </script>
+   <div class="alert alert-success" role="alert">
+       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+       Amount is always integer. Please make sure that you Enter a Number
+   </div>
 @endif
 @foreach($events as $events)
 @endforeach
@@ -70,7 +69,9 @@
                 <h3>
                     Total Amount Left : <span id="total_left"></span>
                 </h3>
-                <a onclick="window.history.go(-1)" style="text-decoration:underline;color:blue;cursor: pointer;">Go back</a>
+               <a href="{{ route('showpocket') }}"
+                   style="text-decoration:underline;color:blue;cursor: pointer;">Go
+                   back</a>
             </div>
         </div>
     </div>
@@ -93,7 +94,7 @@
                             <label for="earned"
                                 class="col-md-4 col-form-label text-md-right">{{ __('Earned Amount ') }}</label>
                             <div class="col-md-6">
-                                <input id="earned" type="earned"
+                                <input id="earned" type="number"
                                     class="form-control @error('earned') is-invalid @enderror" name="earned"
                                     value="{{ old('earned') }}" required autocomplete="earned" autofocus>
 
@@ -132,7 +133,7 @@
                             <label for="spent"
                                 class="col-md-4 col-form-label text-md-right">{{ __('Spent Amount ') }}</label>
                             <div class="col-md-6">
-                                <input id="spent" type="spent"
+                                <input id="spent" type="number"
                                     class="form-control @error('spent') is-invalid @enderror" name="spent"
                                     value="{{ old('spent') }}" required autocomplete="spent" autofocus>
 
