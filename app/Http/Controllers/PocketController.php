@@ -15,9 +15,25 @@ class PocketController extends Controller {
     }
 
     public function addevent( Request $request ) {
-        $this->validate( $request, [
-            'event_name' => ['required', 'string'],
-        ] );
+        // $this->validate( $request, [
+        //     'event_name' => ['required', 'string'],
+        // ] );
+
+
+
+         $attributes = [
+         'event_name' => 'Name of the Event',
+
+         ];
+         $rules = [
+         'event_name' => "required",
+         ];
+         $messages = [
+         'event_name.*' => 'Please check the value of quantity of product sold ',
+
+
+         ];
+         $request->validate($rules, $messages ,$attributes);
 
         $user_id = Auth::id();
         $Pocketsevent = new Pocketsevent();
@@ -69,7 +85,10 @@ $Pocketearned->save();
         $user_id = Auth::id();
 
 // echo $eventid;
-        $events = Pocketsevent::where( 'user_id', $user_id )->get();
+        $events = Pocketsevent::where( [
+        ['user_id', $user_id],
+        ['id', $eventid],
+        ] )->get();
         $earned = Pocketearned::where(
             [
                 ['user_id', $user_id],
@@ -90,15 +109,21 @@ $Pocketearned->save();
 
     public function addearned( Request $request, $eventid ) {
         $user_id = Auth::id();
+        // echo $eventid;
         $lastearned = Pocketearned::where(
-            'user_id', '=', $user_id, 'and', 'event_id', $eventid
+
+             [
+             ['user_id', $user_id],
+             ['event_id', $eventid],
+             ]
+
         )->get()->last();
-        // echo $lastearned->total_earned;
+//   echo $lastearned->event_id;
         $this->validate( $request, [
             'earned' => ['required', 'integer'],
         ] );
 
-        $user_id = Auth::id();
+
         $Pocketearned = new Pocketearned();
         $Pocketearned->user_id = $user_id;
         $Pocketearned->event_id = $lastearned->event_id;

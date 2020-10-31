@@ -2,6 +2,13 @@
 
 @section('content')
 <div class="container">
+@if(count($errors) > 0)
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#addearned').modal('show');
+        });
+    </script>
+@endif
 @foreach($events as $events)
 @endforeach
     @if(session('success'))
@@ -71,7 +78,7 @@
     <div class="modal fade" id="addearned" tabindex="-1" aria-labelledby="addearnedLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form method="POST" action="{{ route('add.earned',['eventid',$events->id]) }}">
+                <form method="POST" action="{{ route('add.earned',['eventid'=>$events->id]) }}">
                     <div class="modal-header">
                         <h5 class="modal-title" id="addearnedLabel">Add Earned Amount</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -110,7 +117,7 @@
     <div class="modal fade" id="addspent" tabindex="-1" aria-labelledby="addspentLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form method="POST" action="{{ route('add.spent',['eventid',$events->id]) }}">
+                <form method="POST" action="{{ route('add.spent',['eventid'=>$events->id]) }}">
                     <div class="modal-header">
                         <h5 class="modal-title" id="addspentLabel">Add Spent Amount</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -145,12 +152,15 @@
         </div>
     </div>
 </div>
-<script>
+<script type="text/javascript">
+    >
     // Selecting the input element and get its value
         var totalearned = document.getElementById("total_earned").innerHTML;
 
         var totalspent = document.getElementById("total_spent").innerHTML;
         var totaleft = totalearned - totalspent;
+
+ <
 
 
         document.getElementById("total_left").innerHTML = totaleft;

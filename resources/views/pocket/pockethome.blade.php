@@ -69,5 +69,11 @@
     </div>
 </div>
 
+    <script type="text/javascript">
+@if (count($errors) > 0)
+    $('#exampleModal').modal('show');
+@endif
+
+</script>
 
 @endsection
