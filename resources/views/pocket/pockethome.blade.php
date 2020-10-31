@@ -11,6 +11,7 @@
 @endif
     <h1 class="text-center"> Pocket Manager <button class="badge badge-secondary" data-toggle="modal"
             data-target="#exampleModal">Add Event</button></h1>
+@if($events->count()>0)
 @foreach($events as $events)
       <div class="card" style="width: auto;margin:15px">
           <div class="card-body text-center">
@@ -29,6 +30,20 @@
 
     </div>
 @endforeach
+@else
+<div class="alert alert-success" role="alert" style="color:black">
+    No Events Found,<br>
+
+    <a style="color: rgb(1, 51, 90);text-decoration:underline;cursor: pointer;"
+        data-toggle="modal"
+        data-target="#exampleModal">{{ __('Add Important Events here!') }}
+    </a>
+    <br>
+    <a style="color: rgb(1, 51, 90);text-decoration:underline"
+        href="{{ route('showpocket') }}">{{ __('Please Refresh Here!') }}
+    </a>
+</div>
+@endif
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">

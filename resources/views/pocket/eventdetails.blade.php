@@ -70,6 +70,7 @@
                 <h3>
                     Total Amount Left : <span id="total_left"></span>
                 </h3>
+                <a onclick="window.history.go(-1)" style="text-decoration:underline;color:blue;cursor: pointer;">Go back</a>
             </div>
         </div>
     </div>

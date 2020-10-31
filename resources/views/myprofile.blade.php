@@ -44,22 +44,33 @@
 
                     <div class="row">
                         <div class="col-md-3">
-                            <form method="get" action="{{ route('home') }}">
+                            <form method="get" action="{{ route('showpocket') }}">
                                 <div class="form-group row mb-0">
                                     <div class="col-md-8 offset-md-4">
                                         <button type="submit" class="btn btn-primary">
-                                            {{ __('Add new Links') }}
+                                            {{ __('Show My Pocket') }}
                                         </button>
                                     </div>
                                 </div>
                             </form>
                         </div>
                         <div class="col-md-3">
-                            <form method="get" action="{{ route('addnotes') }}">
+                            <form method="get" action="{{ route('showposts') }}">
                                 <div class="form-group row mb-0">
                                     <div class="col-md-8 offset-md-4">
                                         <button type="submit" class="btn btn-primary">
-                                            {{ __('Add New Notes') }}
+                                            {{ __('Show My Links') }}
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-3">
+                            <form method="get" action="{{ route('shownotes') }}">
+                                <div class="form-group row mb-0">
+                                    <div class="col-md-8 offset-md-4">
+                                        <button type="submit" class="btn btn-primary">
+                                            {{ __('Show My Notes') }}
                                         </button>
                                     </div>
 
