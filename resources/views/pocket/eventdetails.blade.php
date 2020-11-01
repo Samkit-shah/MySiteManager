@@ -155,14 +155,14 @@
     </div>
 </div>
 <script type="text/javascript">
-    >
+
     // Selecting the input element and get its value
         var totalearned = document.getElementById("total_earned").innerHTML;
 
         var totalspent = document.getElementById("total_spent").innerHTML;
         var totaleft = totalearned - totalspent;
 
- <
+
 
 
         document.getElementById("total_left").innerHTML = totaleft;

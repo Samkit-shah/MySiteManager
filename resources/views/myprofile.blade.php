@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-3" style="padding: 15px">
                             <form method="get" action="{{ route('showpocket') }}">
                                 <div class="form-group row mb-0">
                                     <div class="col-md-8 offset-md-4">
@@ -54,7 +54,7 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3" style="padding: 15px">
                             <form method="get" action="{{ route('showposts') }}">
                                 <div class="form-group row mb-0">
                                     <div class="col-md-8 offset-md-4">
@@ -65,7 +65,7 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3" style="padding: 15px">
                             <form method="get" action="{{ route('shownotes') }}">
                                 <div class="form-group row mb-0">
                                     <div class="col-md-8 offset-md-4">
