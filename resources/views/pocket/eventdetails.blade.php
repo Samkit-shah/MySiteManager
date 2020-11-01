@@ -2,20 +2,21 @@
 
 @section('content')
 <div class="container">
-@if(count($errors) > 0)
-   <div class="alert alert-success" role="alert">
-       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-       Amount is always integer. Please make sure that you Enter a Number
-   </div>
-@endif
-@foreach($events as $events)
-@endforeach
+    @if(count($errors) > 0)
+    <div class="alert alert-success" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        Amount is always integer. Please make sure that you Enter a Number
+    </div>
+    @endif
+    @foreach($events as $events)
+    @endforeach
     @if(session('success'))
     <div class="alert alert-success" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         {{ session('success') }}
     </div>
     @endif
+@if($events->count()>0)
     <div class="card" style="width: 100%;">
         <div class="card-body text-center">
             {{-- <h5 class="card-title">{{ $events->event_name }}</h5> --}}
@@ -69,9 +70,8 @@
                 <h3>
                     Total Amount Left : <span id="total_left"></span>
                 </h3>
-               <a href="{{ route('showpocket') }}"
-                   style="text-decoration:underline;color:blue;cursor: pointer;">Go
-                   back</a>
+                <a href="{{ route('showpocket') }}" style="text-decoration:underline;color:blue;cursor: pointer;">Go
+                    back</a>
             </div>
         </div>
     </div>
@@ -153,9 +153,17 @@
             </div>
         </div>
     </div>
+@else
+ <div class="alert alert-success" role="alert">
+     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+     No Such Event <br>
+       <a href="{{ route('showpocket') }}"
+           style="text-decoration:underline;color:blue;cursor: pointer;">Go
+           back</a>
+ </div>
+@endif
 </div>
 <script type="text/javascript">
-
     // Selecting the input element and get its value
         var totalearned = document.getElementById("total_earned").innerHTML;
 

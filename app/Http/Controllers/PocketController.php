@@ -103,6 +103,8 @@ $Pocketearned->save();
         ['event_id', $eventid],
         ] )->get();
 // echo $spent;
+// echo $earned;
+// echo $events;
         return view( 'pocket.eventdetails', compact( 'events', 'earned', 'spent' ) );
 
     }
