@@ -107,54 +107,58 @@ $Pocketearned->save();
 
     }
 
-    public function addearned( Request $request, $eventid ) {
-        $user_id = Auth::id();
-        // echo $eventid;
-        $lastearned = Pocketearned::where(
+   public function addearned( Request $request, $eventid ) {
+   $user_id = Auth::id();
+   // echo $eventid;
+   $lastearned = Pocketearned::where(
 
-             [
-             ['user_id', $user_id],
-             ['event_id', $eventid],
-             ]
+   [
+   ['user_id', $user_id],
+   ['event_id', $eventid],
+   ]
 
-        )->get()->last();
-//   echo $lastearned->event_id;
-        $this->validate( $request, [
-            'earned' => ['required', 'integer'],
-        ] );
+   )->get()->last();
+   // echo $lastearned->event_id;
+   $this->validate( $request, [
+   'earned' => ['required', 'integer'],
+   ] );
 
+   $Pocketearned = new Pocketearned();
+   $Pocketearned->user_id = $user_id;
+   $Pocketearned->event_id = $lastearned->event_id;
+   $Pocketearned->total_earned = request( 'earned' ) + $lastearned->total_earned;
+   $Pocketearned->earned = request( 'earned' );
+   $Pocketearned->save();
 
-        $Pocketearned = new Pocketearned();
-        $Pocketearned->user_id = $user_id;
-        $Pocketearned->event_id = $lastearned->event_id;
-        $Pocketearned->total_earned = request( 'earned' ) + $lastearned->total_earned;
-        $Pocketearned->earned = request( 'earned' );
-        $Pocketearned->save();
+   return redirect()->back()->with( 'success', 'Amount Added' );
 
-        return  redirect()->back()->with( 'success', 'Amount Added' );
+   }
 
-    }
-    public function addspent( Request $request, $eventid ) {
-    $user_id = Auth::id();
-    $lastspent = Pocketspent::where(
-    'user_id', '=', $user_id, 'and', 'event_id', $eventid
-    )->get()->last();
-    // echo $lastspent->total_spent;
-    $this->validate( $request, [
-    'spent' => ['required', 'integer'],
-    ] );
+   public function addspent( Request $request, $eventid ) {
+   $user_id = Auth::id();
+   $lastspent = Pocketspent::where(
+   [
+   ['user_id', $user_id],
+   ['event_id', $eventid],
+   ]
 
-    $user_id = Auth::id();
-    $Pocketspent = new Pocketspent();
-    $Pocketspent->user_id = $user_id;
-    $Pocketspent->event_id = $lastspent->event_id;
-    $Pocketspent->total_spent = request( 'spent' ) + $lastspent->total_spent;
-    $Pocketspent->spent = request( 'spent' );
-    $Pocketspent->save();
+   )->get()->last();
+   // echo $lastspent->total_spent;
+   $this->validate( $request, [
+   'spent' => ['required', 'integer'],
+   ] );
 
-    return redirect()->back()->with( 'success', 'Amount Added' );
+   $user_id = Auth::id();
+   $Pocketspent = new Pocketspent();
+   $Pocketspent->user_id = $user_id;
+   $Pocketspent->event_id = $lastspent->event_id;
+   $Pocketspent->total_spent = request( 'spent' ) + $lastspent->total_spent;
+   $Pocketspent->spent = request( 'spent' );
+   $Pocketspent->save();
 
-    }
+   return redirect()->back()->with( 'success', 'Amount Added' );
+
+   }
 
 
       public function deleteevent( $eventid ) {
