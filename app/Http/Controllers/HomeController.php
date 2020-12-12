@@ -18,7 +18,7 @@ class HomeController extends Controller
         $this->middleware(['auth', 'verified']);
         // For Not Verifing USers
         // $this->middleware(['auth']);
-        
+
     }
 
     /**

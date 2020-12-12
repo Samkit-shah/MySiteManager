@@ -162,7 +162,9 @@
                             </div>
                         </div>
                         @endforeach
+
                     </div>
+                    {{ $posts->links() }}
                     @else
                     <div class="alert alert-success" role="alert" style="color:black">
                         No Links Found,<br>

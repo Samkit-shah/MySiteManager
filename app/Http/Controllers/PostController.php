@@ -46,18 +46,18 @@ class PostController extends Controller {
         $searchbytitle = $request->get( 'searchbytitle' );
         $user = Auth::user();
         if ( $searchbydescription == null && $searchbytitle == null ) {
-            $posts = Post::where( 'user_id', $user->id )->get()->sortByDesc( 'created_at' );
+            $posts = Post::where( 'user_id', $user->id )->orderBy('created_at', 'DESC')->paginate(2);
 
             $searchresults = '';
             return view( 'post.showpost', compact( 'user', 'posts', 'searchresults' ) );
         } else if ( $searchbydescription == null ) {
             $posts = Post::where( 'user_id', $user->id )->where( 'title', 'like', '%' . $searchbytitle .
-            '%' ) ->get()->sortByDesc( 'created_at' );
+            '%' )->orderBy('created_at', 'DESC')->paginate(2);
             $searchresults = 'Search result having the searched keyword in your link title';
             return view( 'post.showpost', compact( 'user', 'posts', 'searchresults' ) );
         } else if ( $searchbytitle == null ) {
             $posts = Post::where( 'user_id', $user->id )->where( 'description', 'like', '%' . $searchbydescription .
-            '%' ) ->get()->sortByDesc( 'created_at' );
+            '%' )->orderBy('created_at', 'DESC')->paginate(2);
 
             $searchresults = 'Search result having the searched keyword in your link description';
 
