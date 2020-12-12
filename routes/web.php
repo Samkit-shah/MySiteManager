@@ -66,4 +66,7 @@ Route::get('/eventdetails/{eventid}','PocketController@eventdetails')->name('eve
 Route::post('/addearned/{eventid}','PocketController@addearned')->name('add.earned');
 Route::post('/addspent/{eventid}','PocketController@addspent')->name('add.spent');
 
+Route::post('/addearnednote/{earnedid}','PocketController@addearnednote')->name('add.earnednote');
+Route::post('/addspentnote/{spentid}','PocketController@addspentnote')->name('add.spentnote');
+
 Route::get('/deleteevent/{eventid}','PocketController@deleteevent')->name('deleteevent');

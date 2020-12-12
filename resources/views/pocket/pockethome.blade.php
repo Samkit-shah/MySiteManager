@@ -84,7 +84,7 @@
     </div>
 </div>
 
-    <script type="text/javascript">
+<script type="text/javascript">
 @if (count($errors) > 0)
     $('#exampleModal').modal('show');
 @endif

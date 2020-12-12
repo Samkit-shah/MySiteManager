@@ -12,7 +12,7 @@ class PocketController extends Controller {
         $this->middleware( ['auth', 'verified'] );
     }
 
-    public function ad\devent( Request $request ) {
+    public function addevent( Request $request ) {
 
         $attributes = [
             'event_name' => 'Name of the Event',
@@ -107,12 +107,14 @@ class PocketController extends Controller {
         // echo $lastearned->event_id;
         $this->validate( $request, [
             'earned' => ['required', 'integer'],
+            'earned_note' => ['required'],
         ] );
         $Pocketearned = new Pocketearned();
         $Pocketearned->user_id = $user_id;
         $Pocketearned->event_id = $lastearned->event_id;
         $Pocketearned->total_earned = request( 'earned' ) + $lastearned->total_earned;
         $Pocketearned->earned = request( 'earned' );
+        $Pocketearned->earned_note = request( 'earned_note' );
         $Pocketearned->save();
         return redirect()->back()->with( 'success', 'Amount Added' );
     }
@@ -129,6 +131,7 @@ class PocketController extends Controller {
         // echo $lastspent->total_spent;
         $this->validate( $request, [
             'spent' => ['required', 'integer'],
+            'spent_note' => ['required'],
         ] );
 
         $user_id = Auth::id();
@@ -137,11 +140,35 @@ class PocketController extends Controller {
         $Pocketspent->event_id = $lastspent->event_id;
         $Pocketspent->total_spent = request( 'spent' ) + $lastspent->total_spent;
         $Pocketspent->spent = request( 'spent' );
+        $Pocketspent->spent_note = request( 'spent_note' );
         $Pocketspent->save();
 
         return redirect()->back()->with( 'success', 'Amount Added' );
 
     }
+
+ public function addearnednote( Request $request, $earnedid ) {
+
+        $this->validate( $request, [
+            'earned_note' => ['required'],
+        ] );
+        DB::table('earned')
+                ->where('id', $earnedid)
+                ->update(['earned_note' => request( 'earned_note' )]);
+
+        return redirect()->back()->with( 'success', 'Earned Note Updated' );
+    }
+
+     public function addspentnote( Request $request, $spentid ) {
+        $this->validate( $request, [
+            'spent_note' => ['required'],
+        ] );
+        DB::table('spent')
+                ->where('id', $spentid)
+                ->update(['spent_note' => request( 'spent_note' )]);
+        return redirect()->back()->with( 'success', 'Spent Note Updated' );
+    }
+
 
     public function deleteevent( $eventid ) {
         DB::delete( 'delete from events where id = ?', [$eventid] );
