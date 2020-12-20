@@ -38,20 +38,20 @@
                         <small><a id="addearnednote" class="badge badge-success editpurpose" style="cursor: pointer">Edit-purpose</a></small>
                     </h1>
 
-                    @foreach($earned as $earned)
+                    @foreach($earned as $earned_details)
 
 
                     <div class="text-center amountdiv">
-                        <h4 style="margin:10px 0 0 0 !important">{{ $earned->earned }}
+                        <h4 style="margin:10px 0 0 0 !important">{{ $earned_details->earned }}
                         </h4>
-                        <h5 class="showearnednote">{{ $earned->earned_note }}</h5>
+                        <h5 class="showearnednote">{{ $earned_details->earned_note }}</h5>
                         <div class="addearnednoteform" style="display: none">
-                            <form method="POST" action="{{ route('add.earnednote',['earnedid'=>$earned->id]) }}">
+                            <form method="POST" action="{{ route('add.earnednote',['earnedid'=>$earned_details->id]) }}">
                                 @csrf
                                 <div class="form-group ">
                                     {{-- <label for="earned_note" class="col-md-4 col-form-label text-md-right">{{ __('Earned Purpose/Note') }}</label> --}}
                                     <div class="col-md-5 mx-auto">
-                                        <input id="earned_note" type="text" class="form-control @error('earned_note') is-invalid @enderror" name="earned_note" value="{{ old('earned_note') }}" required autocomplete="earned_note" autofocus placeholder="{{ $earned->earned_note }}" style="border: 0;
+                                        <input id="earned_note" type="text" class="form-control @error('earned_note') is-invalid @enderror" name="earned_note" value="{{ old('earned_note') }}" required autocomplete="earned_note" autofocus placeholder="{{ $earned_details->earned_note }}" style="border: 0;
                                         border-bottom: 2px solid black;
                                         font-size: 1.3rem;
                                         padding: 7px 0;
@@ -65,7 +65,7 @@
                                 <button type="submit" class="btn btn-primary">Save</button>
                             </form>
                         </div>
-                        {{-- {{ $earned->id }} --}} Posted at :{{ $earned->created_at->format('d/m/Y g:i a.') }}
+                        {{-- {{ $earned->id }} --}} Posted at :{{ $earned_details->created_at->format('d/m/Y g:i a.') }}
 
                     </div>
                     <hr> @endforeach
@@ -76,19 +76,19 @@
                         <a style="padding:5px 7px !important" type="button" class="btn btn-dark text-white addbtn" data-toggle="modal" data-target="#addspent">+ Add</a>
                         <small><a id="addspentnote" class="badge badge-success editpurpose" style="cursor: pointer">Edit-purpose</a></small>
                     </h1>
-                    @foreach($spent as $spent)
+                    @foreach($spent as $spent_details)
 
 
                     <div class="text-center amountdiv">
-                        <h4> {{ $spent->spent }} </h4>
-                        <h5 class="showspentnote">{{ $spent->spent_note }}</h5>
+                        <h4> {{ $spent_details->spent }} </h4>
+                        <h5 class="showspentnote">{{ $spent_details->spent_note }}</h5>
                         <div class="addspentnoteform" style="display: none">
-                            <form  method="POST" action="{{ route('add.spentnote',['spentid'=>$spent->id]) }}">
+                            <form  method="POST" action="{{ route('add.spentnote',['spentid'=>$spent_details->id]) }}">
                                 @csrf
                                 <div class="form-group">
                                     {{-- <label for="spent_note" class="col-md-4 col-form-label text-md-right">{{ __('spent Purpose/Note') }}</label> --}}
                                     <div class="col-md-4 mx-auto">
-                                        <input id="spent_note" type="text" class="form-control @error('spent_note') is-invalid @enderror" name="spent_note" value="{{ old('spent_note') }}" required autocomplete="spent_note" autofocus placeholder="{{ $spent->spent_note }}" style="border: 0;
+                                        <input id="spent_note" type="text" class="form-control @error('spent_note') is-invalid @enderror" name="spent_note" value="{{ old('spent_note') }}" required autocomplete="spent_note" autofocus placeholder="{{ $spent_details->spent_note }}" style="border: 0;
                                         border-bottom: 2px solid black;
                                         outline: 0;
                                         font-size: 1.3rem;
@@ -102,7 +102,7 @@
                                 <button type="submit" class="btn btn-primary">Save</button>
                             </form>
                         </div>
-                        Posted at :{{ $spent->created_at->format('d/m/Y g:i a.') }}
+                        Posted at :{{ $spent_details->created_at->format('d/m/Y g:i a.') }}
                     </div>
                     <hr>
                     @endforeach
@@ -111,12 +111,12 @@
             <div class="row">
                 <div class="col" style="padding-right:0px">
                     <div class="totalearned badge badge-success" style="width: 100%;">
-                        <h4 id="total_earned" style="margin:0 !important">{{ $earned->total_earned }}</h4>
+                        <h4 id="total_earned" style="margin:0 !important">{{ $total_earned }}</h4>
                     </div>
                 </div>
                 <div class="col" style="padding-left:0px">
                     <div class="totalearned badge badge-danger" style="width: 100%">
-                        <h4 id="total_spent" style="margin:0 !important">{{ $spent->total_spent }}</h4>
+                        <h4 id="total_spent" style="margin:0 !important">{{ $total_spent }}</h4>
                     </div>
                 </div>
             </div>

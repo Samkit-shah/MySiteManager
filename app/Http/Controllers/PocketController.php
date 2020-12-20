@@ -34,20 +34,18 @@ class PocketController extends Controller {
         $Pocketsevent->event_name = request( 'event_name' );
         $Pocketsevent->save();
 
-        $lastevent = Pocketsevent::where(
-            'user_id', '=', $user_id
-        )->get()->last();
+        $lastevent =  $Pocketsevent->id;
 
         $Pocketspent = new Pocketspent();
         $Pocketspent->user_id = $user_id;
-        $Pocketspent->event_id = $lastevent->id;
+        $Pocketspent->event_id = $lastevent;
         $Pocketspent->total_spent = '0';
         $Pocketspent->spent = '0';
         $Pocketspent->save();
 
         $Pocketearned = new Pocketearned();
         $Pocketearned->user_id = $user_id;
-        $Pocketearned->event_id = $lastevent->id;
+        $Pocketearned->event_id = $lastevent;
         $Pocketearned->total_earned = '0';
         $Pocketearned->earned = '0';
         $Pocketearned->save();
@@ -86,10 +84,24 @@ class PocketController extends Controller {
             ['user_id', $user_id],
             ['event_id', $eventid],
         ] )->get();
+        $total_spent = DB::table('spent')
+    ->where([
+        ['user_id', $user_id],
+        ['event_id', $eventid],
+    ])
+    ->sum('spent');
+$total_earned = DB::table('earned')
+    ->where([
+        ['user_id', $user_id],
+        ['event_id', $eventid],
+    ])
+    ->sum('earned');
+
         // echo $spent;
         // echo $earned;
         // echo $events;
-        return view( 'pocket.eventdetails', compact( 'events', 'earned', 'spent' ) );
+  return view('pocket.eventdetails', compact('events', 'earned', 'spent', 'total_spent', 'total_earned'));
+
 
     }
 
