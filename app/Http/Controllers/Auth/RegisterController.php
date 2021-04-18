@@ -123,11 +123,11 @@ class RegisterController extends Controller
 
      }else{
      $newUser = User::create([
-     'name' => $user->name,
-     'email' => $user->email,
-     'google_id'=> $user->id,
-     'password' => bcrypt('123456dummy'),
-    'contactno' => '1234567890',
+        'name' => $user->name,
+        'email' => $user->email,
+        'google_id'=> $user->id,
+        'password' => bcrypt('123456dummy'),
+        'contactno' => '1234567890',
 
      ]);
      $newUser->markEmailAsVerified();

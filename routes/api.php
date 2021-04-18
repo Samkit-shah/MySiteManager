@@ -17,3 +17,16 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('getevents', 'ApiController@getevents');
+Route::delete('deleteevent/{event}', 'ApiController@deleteevent');
+Route::post('getspent', 'ApiController@getspent');
+Route::post('getearned', 'ApiController@getearned');
+Route::post('addevent', 'ApiController@addevent');
+Route::post('addearned', 'ApiController@addearned');
+Route::post('addspent', 'ApiController@addspent');
+Route::post('login', 'ApiController@login');
+Route::post('register', 'ApiController@register');
+Route::post('register_google', 'ApiController@register_google');
+Route::post('login_google', 'ApiController@login_google');
+Route::post('getallfromevent', 'ApiController@getallfromevent');
