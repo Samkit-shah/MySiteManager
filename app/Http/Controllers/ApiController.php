@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Pocketearned;
 use App\Pocketspent;
 use App\User;
+use App\Post;
 use App\Pocketsevent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -100,7 +101,7 @@ class ApiController extends Controller
     public function getevents(Request $request)
     {
         $user_id = $request->userid;
-        $events = Pocketsevent::where( 'user_id', $user_id )->orderBy('updated_at', 'asc')->get();
+        $events = Pocketsevent::where( 'user_id', $user_id )->orderBy('updated_at', 'desc')->get();
         foreach ($events as &$event) {
             $total_spent = DB::table('spent')
             ->where([
@@ -255,5 +256,60 @@ class ApiController extends Controller
         $res=['error' => false,'message' => 'Amount Added'];
         return response()->json($res, 201);
     }
+    public function editpocketnote( Request $request ) {
+        // $user_id = $request->userid;
+        $dataid = $request->dataid;
+        $type = $request->type;
+        $note = $request->note;
 
+        if (empty($note)) {
+            $res=['error' => true,'message' => 'Error'];
+            return response()->json($res, 400);
+            die;
+        }
+
+        DB::table($type)
+                ->where('id', $dataid)
+                ->update([$type.'_note' => $note]);
+        $res=['error' => false,'message' => 'Note Updated'];
+        return response()->json($res, 201);
+    }
+
+    public function getsavedlinks(Request $request)
+    {
+        $posts = Post::where( 'user_id', $request->userid )->orderBy('created_at', 'DESC')->get();
+        return response()->json($posts, 201);
+    }
+    public function addlink(Request $request)
+    {
+         if (empty( $request->title)) {
+            $res=['error' => true,'link_id' => ''];
+            return response()->json($res, 400);
+            die;
+        }
+        $user_id = $request->userid;
+        $post = new Post();
+        $post->user_id = $user_id;
+        $post->title =$request->title;
+        $post->description =$request->description;
+        $post->sitelink =$request->sitelink;
+        $post->save();
+        $lastlink =  $post->id;
+        if ($lastlink) {
+            $res=['error' => false,'link_id' => $lastlink];
+            return response()->json($res, 201);
+        } else {
+            $res=['error' => true,'link_id' => ''];
+            return response()->json($res, 201);
+        }
+    }
+    public function deletelink(Post $link)
+    {
+        $delid=$link->delete();
+        if ($delid) {
+            return response()->json(null, 204);
+        } else {
+           return response()->json(null, 500);
+        }
+    }
 }
