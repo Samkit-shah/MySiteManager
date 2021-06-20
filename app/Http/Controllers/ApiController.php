@@ -173,6 +173,7 @@ class ApiController extends Controller
         $event_id = $request->event_id;
         $earned_amount = $request->earned_amount;
         $earned_note = $request->earned_note;
+        $earned_mode = $request->earned_mode;
 
         if (empty($event_id)) {
             $res=['error' => true,'message' => 'Error'];
@@ -207,6 +208,7 @@ class ApiController extends Controller
         $Pocketearned->total_earned = $earned_amount + $lastearned_total;
         $Pocketearned->earned = $earned_amount;
         $Pocketearned->earned_note = $earned_note;
+        $Pocketearned->earned_mode = $earned_mode;
         $Pocketearned->save();
         $lastearned_added =  $Pocketearned->id;
         $res=['error' => false,'message' => 'Amount Added'];
@@ -217,6 +219,7 @@ class ApiController extends Controller
         $event_id = $request->event_id;
         $spent_amount = $request->spent_amount;
         $spent_note = $request->spent_note;
+        $spent_mode = $request->spent_mode;
 
         if (empty($event_id)) {
             $res=['error' => true,'message' => 'Error'];
@@ -251,6 +254,7 @@ class ApiController extends Controller
         $Pocketspent->total_spent = $spent_amount + $lastspent_total;
         $Pocketspent->spent = $spent_amount;
         $Pocketspent->spent_note = $spent_note;
+        $Pocketspent->spent_mode = $spent_mode;
         $Pocketspent->save();
         $lastspent_added =  $Pocketspent->id;
         $res=['error' => false,'message' => 'Amount Added'];
@@ -261,6 +265,7 @@ class ApiController extends Controller
         $dataid = $request->dataid;
         $type = $request->type;
         $note = $request->note;
+        $mode = $request->mode;
 
         if (empty($note)) {
             $res=['error' => true,'message' => 'Error'];
@@ -270,9 +275,20 @@ class ApiController extends Controller
 
         DB::table($type)
                 ->where('id', $dataid)
-                ->update([$type.'_note' => $note]);
+                ->update([$type.'_note' => $note,$type.'_mode' =>  $mode]);
         $res=['error' => false,'message' => 'Note Updated'];
         return response()->json($res, 201);
+    }
+    public function deletepocketnote( Request $request ) {
+        $dataid = $request->dataid;
+        $type = $request->type;
+
+        $delid=DB::table( $type)->where('id', '=', $dataid )->delete();
+        if ($delid) {
+            return response()->json(null, 204);
+        } else {
+           return response()->json(null, 500);
+        }
     }
 
     public function getsavedlinks(Request $request)

@@ -31,6 +31,7 @@ Route::post('addearned', 'ApiController@addearned');
 Route::post('addspent', 'ApiController@addspent');
 Route::post('getallfromevent', 'ApiController@getallfromevent');
 Route::post('editpocketnote', 'ApiController@editpocketnote');
+Route::post('deletepocketnote', 'ApiController@deletepocketnote');
 //Links
 Route::get('getsavedlinks/{userid}', 'ApiController@getsavedlinks');
 Route::post('addlink', 'ApiController@addlink');
